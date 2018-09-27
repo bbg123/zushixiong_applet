@@ -1,0 +1,148 @@
+<view class="container">
+  <scroll-view scroll-y class='big'>
+    <view class='top'>
+      <button wx:if="{{ username === 'WELCOME' }}" class="btnUser" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="GetUserInfo"></button>
+      <view class='head_img'>
+        <image class='img header' mode='widthFix' src='{{userImg}}'></image>
+      </view>
+      <view class='name'>{{username}}</view>
+      <!-- <view class='name'>{{username}}<view class="name_vip">钻石</view></view> -->
+      <view class="top_btn">
+        <view class="top_btn_fun" bindtap='set'>
+          <image class="top_btn_fun_img" mode="widthFix" src="../img/setting@3x.png"></image>
+          <view class="top_btn_fun_text">设置</view>
+        </view>
+        
+        <view class="top_btn_fun" bindtap='my_wallet'>
+          <image class="top_btn_fun_img" mode="widthFix" src="../img/wallet@3x.png"></image>
+          <view class="top_btn_fun_text">我的钱包</view>
+        </view>
+
+        <view class="top_btn_fun" bindtap='my_address'>
+          <image class="top_btn_fun_img" mode="widthFix" src="../img/address@3x.png"></image>
+          <view class="top_btn_fun_text">收货地址</view>
+        </view>
+
+        <button class="top_btn_fun reset_btn" open-type="share">
+          <image class="top_btn_fun_img" mode="widthFix" src="../img/invite@3x.png"></image>
+          <view class="top_btn_fun_text">邀请好友</view>
+        </button>
+      </view>
+      <view class="top_vip" catchtap="showVipTips">
+        <image class="img" mode="widthFix" src="../img/vip_1.png"></image>
+      </view>
+    </view>
+    <view class='four clearfix'>
+      <view class='my_order'>
+        我的订单
+        <span class="order">MY ORDER</span>
+        <view class="hir" catchtap='hri'>历史订单 <view class="jiao"><image class='img' mode='widthFix' src='../img/three.png'></image></view></view>
+      </view>
+      <view class='big_order'>
+        <view class='small_order' bindtap='order0'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/lease@2x.png'></image>
+          </view>
+          <view class='order_text'>
+            租赁订单
+          </view>
+        </view>
+        <view class='small_order' bindtap='order1'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/buy@2x.png'></image>
+          </view>
+          <view class='order_text'>
+            购买订单
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='two'>
+      <view class='my_order'>
+        我的服务
+        <span class="order">MY SERVICE</span>
+        <button class="service_btn hir" open-type='contact'>
+          <view class="headset">
+            <image class='img' style="width: 100%;" mode='widthFix' src='../img/seller.png'></image>
+          </view>
+          联系客服 
+        </button>
+      </view>
+      <view class='big_order'>
+        <view class='small_order' bindtap='my_pay'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/$@2x.png'></image>
+          </view>
+          <view class='order_text'>
+            我的押金
+          </view>
+        </view>
+        <view class='small_order' bindtap='my_cupont'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/discounts@2x.png'></image>
+          </view>
+          <view class='order_text' >
+            我的优惠券
+          </view>
+        </view>
+        <view class='small_order' bindtap='problem'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/issue@2x.png'></image>
+          </view>
+          <view class='order_text' >
+            常见问题
+          </view>
+        </view>
+        <view class='small_order' bindtap='proposal'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/suggest@2x.png'></image>
+          </view>
+          <view class='order_text' >
+            投诉建议
+          </view>
+        </view>
+        <view class='small_order' bindtap='my_discover'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/find@2x.png'></image>
+          </view>
+          <view class='order_text' >
+            我的发现
+          </view>
+        </view>
+        <view class='small_order' bindtap='get_roll'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/getCoupon@2x.png'></image>
+          </view>
+          <view class='order_text' >
+            领券中心
+          </view>
+        </view>
+        <view class='small_order' bindtap='footprint'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/footprint@2x.png'></image>
+          </view>
+          <view class='order_text' >
+            足迹
+          </view>
+        </view>
+        <view class='small_order' bindtap='my_bask'>
+          <view class='order_img'>
+            <image class='img' mode='widthFix' src='../img/comment@2x.png'></image>
+          </view>
+          <view class='order_text' >
+            我的晒单
+          </view>
+        </view>
+      </view>
+    </view>
+
+    
+  </scroll-view>
+  <view class="vip_tips {{ vip_tips_show? 'vip_tips_show' : ''}}}">
+    <view class="vip_tips_close" catchtap="hideVipTips"></view>
+    <image mode="widthFix" class="img" src="../img/vip_tips_img.png"></image>
+    <button class="vip_tips_btn" open-type="share"></button>
+  </view>
+  <view class="mask_layer" wx:if="{{vip_tips_show}}" catchtap="hideVipTips"></view>
+</view>

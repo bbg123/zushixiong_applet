@@ -1,0 +1,309 @@
+<view class="container">
+  <scroll-view scroll-y class='scrolls' bindscroll="scroll" scroll-top="{{scolltop}}" scroll-with-animation="true" style="height: {{clientHeight}}px;">
+    <!--头部隐藏nav  -->
+    <view class='nav' hidden='{{top}}'>
+      <view class='nav_small {{scroll_type==0?"scroll_active":""}}' catchtap='goods' data-index="0">商品</view>
+      <view class='nav_small {{scroll_type==1?"scroll_active":""}}' catchtap='goods' data-index="1">评价</view>
+      <view class='nav_small {{scroll_type==2?"scroll_active":""}}' catchtap='goods' data-index="2">详情</view>
+    </view>
+    <!--头部轮播  -->
+    <swiper indicator-dots="true" indicator-color="#c8c8c8" class='top_img' id='top_img'>
+      <block wx:for="{{headerimg}}" wx:key>
+        <swiper-item>
+          <image src="{{item}}" class="img" mode='widthFix' data-src='{{item}}' bindtap='sees' />
+        </swiper-item>
+      </block>
+    </swiper>
+    <!--购买消息轮播  -->
+    <view class='mg'>
+      <block wx:for="{{nick}}" wx:key>
+        <view class='mgs text_hidden clearfix' animation="{{animationData}}">
+          <view class='ui_name clearfix'>
+            <view class='mg_img float_l'>
+              <image class='img' mode='widthFix' src='{{item.avatar}}'></image>
+            </view>
+            <view class='nickname float_l'>{{item.nickname}}</view> {{item.content }}</view>
+        </view>
+      </block>
+    </view>
+    <view class='title'>
+      <view class='name'>{{name}}</view>
+      <view class='name_c'>租金
+        <span class="money">{{rent_rent_price_section}}</span>
+        <view class='float_r'>售价
+          <view class='sell'>￥{{shop_price}} </view>
+          <view class='shan'> ￥{{market_price}}</view>
+        </view>
+      </view>
+      <view class='jie'>{{goods_remark}}</view>
+      <view class='lei'>
+        <view class='l_left'>累计{{total}}笔</view>
+        <view class='l_right' bindtap='likes'>
+          <!--点赞  -->
+          <view class='right_img'>
+            <image class='img' mode='widthFix' src='{{like_img}}'></image>
+          </view>{{like_count}}</view>
+      </view>
+      <view class='clear'></view>
+    </view>
+    <view class='tops'>
+      <image class='img' src='../img/top.png' mode='widthFix' bindtap='back' hidden='{{!topc}}'></image>
+    </view>
+    <!-- 领取优惠劵 -->
+    <block wx:if="{{coupon_list.length != 0}}">
+      <view class="get_coupons" bindtap="getCoupons">
+        <view class="get_coupons_txt">优惠劵</view>
+        <view class="get_coupons_main text_hidden">
+          <block wx:for="{{coupon_list}}" wx:key="{{index}}">
+            {{item.name}}
+          </block>
+        </view>
+        <!-- 右箭头 -->
+        <view class="rightarrows">
+          <image mode="widthFix" src="../img/right_san.png" style="width: 100%;"></image>
+        </view>
+      </view>
+    </block>
+    <!--品牌位置  -->
+    <block wx:for="{{brand_items}}" wx:key>
+      <view class='cen_brand clearfix' data-id="{{item.id}}" bindtap="tapbrand">
+        <view class='float_l tus'>
+          <view class='brand_img'>
+            <image class='img' style="vertical-align: middle;" mode='widthFix' src='{{item.logo}}'></image>
+          </view>
+        </view>
+        <span>{{item.ename}}</span>
+        <view class='float_r titles {{item.is_collect? "acti" :"no_acti"}}' data-id='{{item.id}}' data-brand="{{item.is_collect}}"
+          catchtap='brand_g'>{{item.is_collect? "已关注":"+关注品牌"}}</view>
+      </view>
+    </block>
+    <!--评论  -->
+    <view class='ping clearfix' id="pingl">
+      <view class='ping_big'>
+        <view class="ping_toptitle" data-id="{{id}}" bindtap="goreview" wx:if='{{ping_items.length !== 0}}'>
+          <view class="ping_toptitle_left">商品晒单({{totalnum}})</view>
+          <view class="ping_toptitle_right">好评{{praise_rate}}%</view>
+        </view>
+        <view class='none' wx:if='{{ping_items.length === 0}}'>暂无评价</view>
+
+        <scroll-view wx:if='{{ping_items.length !== 0}}' scroll-x style="display: flex;">
+          <view class="ping_x_small">
+
+            <block wx:for="{{ping_items}}" wx:key wx:for-item="dd">
+              <view>
+                <view class='ping_small {{dd.images.length != 0 ? " ping_small1" : "ping_small2"}}' data-id="{{id}}" bindtap="goreview">
+
+                  <view class='ping_top {{dd.images.length != 0 ? "ping_top1" : ""}}'>
+                    <block wx:if="{{dd.nickname != ''}}">
+                      <view class="ping_titletxt">
+                        <view class='head_img'>
+                          <image class='img' style="border-radius: 50%;" mode='widthFix' src='{{dd.avatar}}'></image>
+                        </view>
+                        <span>{{dd.nickname}}</span>
+                      </view>
+                    </block>
+
+                    <block wx:else>
+                      <view class="ping_titletxt">
+                        <view class='head_img'>
+                          <image class='img' style="border-radius: 50%;" mode='widthFix' src='../img/heade.png'></image>
+                        </view>
+                        <span>匿名用户</span>
+                      </view>
+                    </block>
+
+                    <view class='ping_title'>{{dd.content}}</view>
+                  </view>
+
+                  <view class='ping_img' wx:if='{{dd.images.length != 0}}'>
+                    <view class="ping_img_num">{{dd.images.length}}张</view>
+                    <view class='ping_ '>
+                      <image class='img' mode='aspectFill' src='{{dd.images[0].file}}'></image>
+                    </view>
+                  </view>
+
+                </view>
+
+              </view>
+            </block>
+
+            <view>
+              <view class="seemore" data-id="{{id}}" bindtap="goreview">
+                <view>更多晒单</view>
+                <view>see more</view>
+              </view>
+            </view>
+          </view>
+
+        </scroll-view>
+
+      </view>
+    </view>
+    <!-- 图文详情 -->
+    <view class='tu' id='xiang'>图文详情</view>
+    <block wx:for="{{imgs}}" wx:key>
+      <view class="image_text">
+        <image src='{{item}}' class='img' mode='widthFix'></image>
+      </view>
+    </block>
+  </scroll-view>
+  <!--购买弹出窗  -->
+  <view class='buys' hidden='{{!play}}'>
+    <view class='whites' catchtap="bb">
+      <view class='chas' catchtap='quxiao'>
+        <view class='cha'>
+          <image lazy-load="true" class='img' mode='widthFix' src='../img/x.png'></image>
+        </view>
+      </view>
+      <view class='colors'>
+        <view class='tops_img'>
+          <image lazy-load="true" class='img' mode='widthFix' src='{{img_src}}' catchtap='imgs' data-src="{{img_src}}"></image>
+        </view>
+        <view class='color'>颜色选择</view>
+        <view class='colo_chock'>
+          <block wx:for="{{color_list}}" wx:key wx:if="{{item.store_count != 0}}">
+            <view class='color_a' style="color:{{item.color_id==currentItemId?'#fff':'#000'}};background:{{item.color_id==currentItemId?'#f33e35':'#eeeeee'}}"
+              id='{{index}}' catchtap='aa' data-store="{{item.store_count}}" data-num="{{item.color_id}}">{{item.name}}</view>
+          </block>
+          <block wx:for="{{color_list}}" wx:key wx:if="{{item.store_count == 0}}">
+            <view class='color_a' style="color:#ccc;background:{{item.color_id==currentItemId?'#313131':'#eeeeee'}}" id='{{index}}' data-store="{{item.store_count}}"
+              catchtap='aa' data-num="{{item.color_id}}">{{item.name}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='color pyas'>价格</view>
+      <view class='colo_chock'>
+        <view class='color_a pays' style="color:{{shop_price==moneyId?'#fff':'#000'}};background:{{shop_price==moneyId?'#f33e35':'#eeeeee'}}">{{shop_price}}元</view>
+      </view>
+    </view>
+    <block wx:if="{{store_count != 0}}">
+      <button bindtap="buy_s" class='sure' style="color: #fff;background: #ff3b2d;">确定</button>
+    </block>
+    <block wx:if="{{store_count == 0}}">
+      <button bindtap="setArrivalNotice" class='sure' style="background: #313131;">到货通知</button>
+    </block>
+  </view>
+  <!--租赁弹出窗  -->
+  <view class='zus' hidden='{{!zus}}'>
+    <view class='whites' catchtap="bb">
+      <view class='chas' catchtap='quxiao'>
+        <view class='cha'>
+          <image lazy-load="true" class='img' mode='widthFix' src='../img/x.png'></image>
+        </view>
+      </view>
+      <view class='colors'>
+        <view class='tops_img'>
+          <image class='img' mode='widthFix' src='{{img_src}}' catchtap='imgs' data-src="{{img_src}}"></image>
+        </view>
+        <view class='color'>颜色选择</view>
+        <view class='colo_chock'>
+          <block wx:for="{{color_list}}" wx:key wx:if="{{item.store_count != 0}}">
+            <view class='color_a' style="color:{{item.color_id==currentItemId?'#fff':'#000'}};background:{{item.color_id==currentItemId?'#f33e35':'#eeeeee'}}"
+              id='{{index}}' catchtap='aa' data-store="{{item.store_count}}" data-num="{{item.color_id}}">{{item.name}}</view>
+          </block>
+          <block wx:for="{{color_list}}" wx:key wx:if="{{item.store_count == 0}}">
+            <view class='color_a' style="color:#ccc;background:{{item.color_id==currentItemId?'#313131':'#eeeeee'}}" id='{{index}}' data-store="{{item.store_count}}"
+              catchtap='aa' data-num="{{item.color_id}}">{{item.name}}</view>
+          </block>
+        </view>
+      </view>
+      <view class='color pyas'>价格</view>
+      <view class='colo_chock'>
+        <block wx:for="{{rent_pay}}" wx:key>
+          <view catchtap='money' class="{{item.rent_price_id==zuli?'actives':'color_a'}}" data-sent="{{item.rent_price_id}}">{{item.price}}元/{{item.day}}天</view>
+        </block>
+      </view>
+    </view>
+    <block wx:if="{{store_count != 0}}">
+      <button bindtap="zu_s" class='sure' style="background: #ff3b2d;">确定</button>
+    </block>
+    <block wx:if="{{store_count == 0}}">
+      <button bindtap="setArrivalNotice" class='sure' style="background: #313131;">到货通知</button>
+    </block>
+  </view>
+
+  <!-- 到货提醒弹窗 -->
+  <view class="popup_frame" wx:if="{{mask_layer}}">
+    <view class="popup_frame_title">设置到货通知</view>
+    <view class="popup_frame_main">
+      <view class="popup_frame_main_txt">
+        本商品暂时缺货, 到货后将通过手机短信通知您 !
+      </view>
+      <view>
+        <input type="number" class="popup_frame_main_input" maxlength="11" focus cursor-spacing="100" bindinput="phoneInput" placeholder="请输入接收通知的手机号"
+          placeholder-style="color:#ccc;" />
+      </view>
+    </view>
+    <view class="popup_frame_bottom">
+      <view class="popup_frame_btn" style="color: #000;background:#fff;" bindtap="closePopup_frame">取消</view>
+      <view class="popup_frame_btn" style="color:#fff;background:#ff3b2d;" bindtap="confirmPhone">确定</view>
+    </view>
+  </view>
+
+  <!-- 遮罩层 -->
+  <view class="mask_layer" wx:if="{{mask_layer}}" bindtap="closePopup_frame"></view>
+  <view class="mask_layer2" hidden='{{!play}}' catchtap='quxiao'></view>
+  <view class="mask_layer2" hidden='{{!zus}}' catchtap='quxiao'></view>
+  <view class="mask_layer2" hidden='{{!coupons}}' catchtap='quxiao'></view>
+
+  <!--底部  -->
+  <view class='bottom'>
+    <view class='bottom_s'>
+      <view class='bottom_t xian' bindtap='goH'>
+        <view class='imgs'>
+          <image class='img' style="height: 100%;" src='../icon/home.png'></image>
+        </view>
+        <view class='img_title'>首页</view>
+      </view>
+      <view bindtap="change" class='bottom_t xian'>
+        <view class='imgs'>
+          <image class='img' style="height: 100%;" src='{{collect_img}}'></image>
+        </view>
+        <view class='img_title'>装备单</view>
+      </view>
+
+    </view>
+    <view class='bottom_s'>
+      <block wx:if="{{allStore_count > 0}}">
+        <view class='bottom_ts buy' bindtap='buy'>我要买</view>
+        <view class='bottom_ts zu' bindtap='zu_a'>我要租</view>
+      </block>
+      <block wx:else>
+        <view class="bottom_tip" bindtap="setArrivalNotice">到货通知</view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 领取优惠卷弹出框 -->
+  <view class='white' hidden='{{!coupons}}'>
+
+    <view class="white_title">
+      领取优惠劵
+      <view class='chass' catchtap='quxiao'>
+        <image lazy-load="true" class='img' mode='widthFix' src='../img/x.png'></image>
+      </view>
+    </view>
+    <scroll-view scroll-y style="height: 100%;margin-top: 100rpx;background: #f8f8f8;">
+      <view class="white_main">
+        <block wx:for="{{coupon_list}}" wx:key="{{index}}">
+          <view class="white_main_roll">
+            <view class="roll_left">
+              <view class="roll_left_top red_col">{{item.money}}</view>
+              <view class="roll_left_bottom red_col">{{item.cat_name}}</view>
+            </view>
+            <view class="roll_right">
+              <view class="roll_right_top">{{item.name}}</view>
+              <view class="roll_right_bottom">{{item.use_time}}</view>
+              <view class="roll_right_btn" data-isget="{{item.is_get}}" data-id="{{item.id}}" bindtap="getroll" style="background-color:{{item.is_get == 0 ? '#E64340' : '#999' }};">{{item.is_get == 0 ? '立即领取' : '已领取'}}</view>
+              <view class="roll_right_yuan" style="top:-20rpx;"></view>
+              <view class="roll_right_yuan" style="bottom: -20rpx;"></view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+
+  </view>
+
+
+</view>

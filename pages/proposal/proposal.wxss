@@ -1,0 +1,30 @@
+.container {
+  background: #fff;
+}
+.e_name{
+  font-size: 26px;
+  padding: 40rpx;
+  font-weight: bold;
+}
+.titel{
+  padding: 40rpx;
+  padding-top: 0;
+}
+ textarea{
+   width: 83%;
+  margin: 40rpx;
+  border: 1px solid #000;
+  background: #eee;
+  padding: 20rpx;
+  height: 500rpx;
+  font-size: 16px;
+  color: #b8b8b8;
+} 
+.ti{
+  margin:0 40rpx;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  background: #f33e35;
+  line-height: 80rpx;
+}

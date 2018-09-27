@@ -1,0 +1,28 @@
+<view class="container">
+  <view class='e_name'>SETTINGS</view>
+  <view class='title'>设置</view>
+  <view class='big'>
+    <view class='small_fours' bindtap='synopsis'>
+      租师兄简介
+      <view class='imgsa'>
+        <image class='img' mode='widthFix' src='../img/right_san.png'></image>
+      </view>
+    </view>
+    <view class='small_fours' bindtap='protect'>
+      隐私保护
+      <view class='imgsa'>
+        <image class='img' mode='widthFix' src='../img/right_san.png'></image>
+      </view>
+    </view>
+    <view class='small_fours' bindtap='clear'>
+      清除装备箱
+      <view class='imgsa'>
+        <image class='img' mode='widthFix' src='../img/right_san.png'></image>
+      </view>
+    </view>
+
+  </view>
+
+
+
+</view>

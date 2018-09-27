@@ -1,0 +1,48 @@
+.big{
+  padding: 40rpx 20rpx;
+}
+.one{
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.two{
+  background: #eee;
+  padding: 10px;
+  font-size: 16px;
+  color: #989898;
+  margin-bottom: 30rpx;
+}
+.three{
+  background: #eee;
+  color: #989898;
+  outline: none;
+  margin-bottom: 50rpx;
+  padding: 10px;
+}
+.bottom{
+  width: 100%;
+  margin: 0 auto;
+  background: #f33e35;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  margin-bottom: 40rpx;
+}
+.bottoms{
+    font-size: 12px;
+    text-align: center;
+}
+.top{
+  margin-bottom: 20rpx;
+}
+.sweepcode {
+  width: 200rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  background: #71ba2a;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 10px;
+}

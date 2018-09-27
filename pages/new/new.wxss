@@ -1,0 +1,83 @@
+@import "../../template/goodslist/goodslist.wxss";
+.header{
+  padding: 0 40rpx;
+  width: 100%;
+  height: 90rpx;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 0 0 5px #c8c8c8;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  z-index: 99;
+}
+.headertop {
+  position: fixed;
+}
+.name{
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  padding: 5rpx 15rpx;
+}
+.big_scroll{
+  background: #f8f8f8;
+  height: 100%;
+  margin-top: 4rpx;
+  position: relative;
+}
+.big{
+  position: relative;
+  padding: 30rpx;
+  display: flex;
+  flex-wrap:wrap;
+}
+.sex{
+  font-size: 16px;
+}
+.money{
+  font-size: 14px;
+}
+.brand{
+  font-size: 14px;
+  margin: 10rpx 0;
+}
+.loading{  
+  padding: 10rpx;  
+  text-align: center;  
+  z-index: 999
+}  
+.loading:before{  
+  display: inline-block;  
+  margin-right: 5rpx;  
+  vertical-align: middle;  
+  content: '';  
+  width: 40rpx;  
+  height: 40rpx; 
+  background-size: contain;  
+  animation: rotate 1s linear infinite;  
+}  
+.loading.complete:before{  
+  display: none;  
+}
+.topimg {
+  width: 100%;
+  height: 283rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.topimg_main{
+  width: 100%;
+}
+.active{
+  border-bottom: 2px solid #ff825c;
+  color: #ff825c;
+}
+
+.img_s {
+  width: 100%;
+  margin: 0 auto;
+  float: left;
+}

@@ -1,0 +1,6 @@
+<view class="container">
+  <view class='e_name'>FEEDBACK</view>
+  <view class='titel'>反馈建议</view>
+  <textarea placeholder="请留下你的吐槽或建议，我们每天都在改进" placeholder-style="color:#b8b8b8;" bindinput="text"></textarea>
+  <view class='ti' bindtap='give'>提交反馈</view>
+</view>

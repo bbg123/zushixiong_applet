@@ -1,0 +1,65 @@
+@import"../../template/orderlist/orderlist.wxss";
+page{
+  background: #f8f8f8;
+}
+.container{
+  background: #f8f8f8;
+}
+.small {
+  margin-bottom: 20rpx;
+  padding: 20rpx 40rpx 80rpx;
+  background: #fff;
+  position: relative;
+}
+
+.left_img {
+  width: 25%;
+  margin-right: 20rpx;
+}
+
+.title {
+  width: 68%;
+  font-size: 14px;
+  position: relative;
+}
+
+.color {
+  color: #969696;
+  margin: 10rpx 0;
+}
+
+.name {
+  color: #9a9a9a;
+}
+.xx{
+  font-size: 14px;
+  width: 200rpx;
+  position: absolute;
+}
+.a{
+  color: #f33e35;
+  position: absolute;
+  width: 150rpx;
+  border-radius: 20rpx;
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #f33e35;
+  right: 40rpx;
+  bottom: 10rpx;
+}
+.b{
+  color: #9a9a9a;
+  border: 1px solid #9a9a9a;
+}
+.c{
+  color: #f54841;
+  border: 1px solid #f54841;
+}
+.order{
+  font-size: 16px;
+  width: 100%;
+  height: 60rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  margin-bottom: 20rpx;
+}

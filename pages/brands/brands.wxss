@@ -1,0 +1,77 @@
+.new {
+  padding: 40rpx;
+}
+
+.top_title {
+  font-size: 20px;
+  padding: 30rpx 0;
+}
+
+.top_title span {
+  color: #bbb;
+  font-size: 14px;
+}
+
+.header {
+  height: 600rpx;
+}
+.brand{
+  margin-top: 30rpx;
+}
+.title {
+  font-size: 14px;
+  color: #bbb;
+  margin-top: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  margin-bottom: 3.025rem;
+}
+.big{
+  padding: 30rpx;
+  padding-right: 0;
+}
+.imgs{
+  width: 500rpx;
+  float: left;
+  margin-right: 20rpx;
+}
+.hot_title{
+  font-size: 20px;
+  padding: 30rpx;
+}
+.hot_title span{
+  color: #bbb;
+  font-size: 14px;
+}
+.all{
+  font-size: 20px;
+  padding: 30rpx;
+}
+.all span{
+  color: #bbb;
+  font-size: 14px;
+}
+.word{
+  background: #f8f8f8;
+  padding-left:30rpx; 
+}
+.son{
+  padding-left: 30rpx;
+  line-height: 80rpx;
+}
+.name{
+  line-height: 80rpx;
+  font-size: 16px;
+  margin-left: 50rpx;
+  font-weight: bold;
+}
+.s_img{
+  width: 10%;
+}
+.img{
+  vertical-align: middle;
+}

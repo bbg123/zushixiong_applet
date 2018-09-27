@@ -1,0 +1,25 @@
+.top{
+  padding: 40rpx;
+  text-indent:2em;
+  color: #d9747a;
+  line-height: 60rpx;
+  font-size: 16px;
+}
+.top_c{
+  padding: 0 40rpx;
+  color: #d9747a;
+  line-height: 60rpx;
+  font-size: 16px;
+}
+.cent{
+  margin-top: 60rpx;
+}
+.small{
+  padding: 30rpx;
+  border-bottom: 1px solid #ececec;
+  line-height: 50rpx;
+  font-size: 16px;
+}
+.small:nth-last-child(1){
+  margin-bottom: 30rpx;
+}

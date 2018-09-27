@@ -1,0 +1,16 @@
+<view class="container">
+  <view class='top clearfix' bindtap='jum'>
+    <view class='float_r imgs'>
+      <image class='img' mode='widthFix' src='../img/and@2x.png'></image>
+    </view> 同款推荐</view>
+  <swiper class='header' indicator-color="#ff825c" indicator-color="" current="{{num}}" indicator-dots="true" indicator-active-color="#ff825c" bindchange="index">
+    <block wx:for="{{items}}" wx:key="{{index}}">
+      <swiper-item>
+        <view class='top_img'>
+          <image src="{{item.img}}" class="img" mode='widthFix' data-src='{{item.img}}'  catchtap='imgs'/>
+        </view>
+        <view class='title'>{{item.text}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

@@ -1,0 +1,174 @@
+/*头部  */
+page{
+  background: #f8f8f8;
+}
+.container{
+  background: #f8f8f8;
+}
+.big {
+  top: 80rpx;
+  bottom: 80rpx;
+}
+.top{
+  position: relative;
+  background: linear-gradient(#bfe832, #71ba2a);
+  height: 340rpx;
+}
+.head_img{
+  width: 128rpx;
+  height: 128rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 40rpx;
+  left: 60rpx;
+}
+.name{
+  position: absolute;
+  top: 86rpx;
+  left: 210rpx;
+}
+.name_vip {
+  position: absolute;
+  font-size: 20rpx;
+  right: -120%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0 10rpx; 
+  border-radius: 10px;
+}
+.btnUser{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+}
+.top_btn{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 127rpx;
+  background: #81a122;
+  display: flex;
+}
+.top_btn_fun{
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+}
+.top_btn_fun_img{
+  width: 60rpx;
+  height: 60rpx;
+  margin-bottom: 10rpx;
+}
+.top_btn_fun_text{
+  font-size: 24rpx;
+  color: #fff;
+}
+.top_vip {
+  position: absolute;
+  right: 0;
+  bottom: 126rpx;
+  width: 30%;
+}
+.img {
+  display: block;
+}
+.reset_btn{
+  border-radius: 0;
+  background: #81a122;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+  line-height: 1;
+  padding: 0;
+}
+.reset_btn::after{
+  border: none; 
+}
+.service_btn {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  box-sizing:content-box;
+  background: #fff;
+  display: flex;
+  line-height: 1;
+}
+.service_btn::after{ 
+  border: none; 
+}
+.four{
+  background: #FFF;
+  margin-top: 30rpx;
+}
+.my_order{
+  position: relative;
+  font-size: 15px;
+  padding: 30rpx;
+  font-weight: 800;
+  display: flex;
+  justify-content:space-between;
+}
+.order{
+  position: absolute;
+  left:178rpx;
+  top:43rpx;  
+  color: #d1d1d1;
+  font-size: 12px;
+  font-weight: 500;
+}
+.big_order{
+  width: 100%;
+}
+.small_order{
+  width: 25%;
+  display: inline-block;
+}
+.order_img{
+  width: 50rpx;
+  margin: 0 auto;
+  padding-top: 10rpx; 
+}
+.order_text{
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10rpx;
+  padding-bottom: 20rpx;
+}
+/*我的服务  */
+.two{
+  background: #FFF;
+  margin-top: 30rpx;
+}
+
+
+.hir{
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+.hir, .headset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.jiao{
+  width: 10rpx;
+  margin-left: 10rpx;
+}
+.headset {
+  width: 26rpx;
+  height: 22rpx;
+  margin: 0 10rpx;
+}

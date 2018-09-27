@@ -1,0 +1,56 @@
+<view class="container">
+  <view class='bigs'>
+    <view class='tiao'></view>
+    <view class='top clearfix'>
+      <view class='xing float_l'>评分</view>
+      <view class='xing float_l'>
+        <view class='xings'>
+          <image class='img' mode='widthFix' data-index='1' catchtap='chang' src='../img/{{chang>=1? "xing2.png" : "xing1.png"}}'></image>
+        </view>
+        <view class='xings'>
+          <image class='img' mode='widthFix' data-index='2' catchtap='chang' src='../img/{{chang>=2? "xing2.png" : "xing1.png"}}'></image>
+        </view>
+        <view class='xings'>
+          <image class='img' mode='widthFix' data-index='3' catchtap='chang' src='../img/{{chang>=3? "xing2.png" : "xing1.png"}}'></image>
+        </view>
+        <view class='xings'>
+          <image class='img' mode='widthFix' data-index='4' catchtap='chang' src='../img/{{chang>=4? "xing2.png" : "xing1.png"}}'></image>
+        </view>
+        <view class='xings'>
+          <image class='img' mode='widthFix' data-index='5' catchtap='chang' src='../img/{{chang>=5? "xing2.png" : "xing1.png"}}'></image>
+        </view>
+      </view>
+    </view>
+    <view class='title'> {{chang==0? "满意请给5星" :(chang==1? "本宝宝不满意，顶多给一星！" : (chang==2? "唉，感觉有点失望" : (chang==3? "感觉一般，还需要改进哦！" : (chang==4? "还不错，本宝宝喜欢！" : "超赞,特别喜欢"))))}}</view>
+    <view class='types' hidden='{{chang>3 || chang==0}}'>
+      <view class='big_type'>遇到什么问题呢，租师兄会努力解决哦~</view>
+      <view class='small_type {{qtype==1? "active" : ""}}' catchtap='q' data-qtype="1">商品问题</view>
+      <view class='small_type {{qtype==2? "active" : ""}}' catchtap='q' data-qtype="2">其他问题</view>
+      <view class='small_type {{qtype==3? "active" : ""}}' catchtap='q' data-qtype="3">客服问题</view>
+      <view class='small_type {{qtype==4? "active" : ""}}' catchtap='q' data-qtype="4">包装破损或物流问题</view>
+    </view>
+    <textarea adjust-position="true" bindinput='text' placeholder="写下这件单品的搭配技巧与心得,分享给其他小伙伴吧"></textarea>
+    <view class='big_img'>
+      <view class='small_img'>
+        <block wx:for="{{img_item}}" wx:key>
+          <view class='imgs' hidden='{{!img_item}}'>
+            <image class='img' mode='aspectFill' src='{{item}}'></image>
+          </view>
+        </block>
+        <view class='sds' catchtap='sds'>
+          <image class='img' mode='widthFix' src='../img/pohot.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--底部  -->
+  <view class='bottom'>
+    <view class='tiao'></view>
+    <view class='name clearfix'>
+      <span>匿名发布</span>
+      <switch class='float_r chooice' color="#ff825c" bindchange="ni"></switch>
+    </view>
+    <view class='send' catchtap='send'>发布</view>
+  </view>
+</view>

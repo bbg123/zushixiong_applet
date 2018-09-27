@@ -1,0 +1,55 @@
+.accredit {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.accredit_title {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ececed;
+  margin: 0 5%;
+  box-sizing: border-box;
+}
+
+.accredit_title_img {
+  width: 150rpx;
+}
+
+.accredit_content {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction:column;
+  padding: 5%;
+  box-sizing: border-box;
+}
+
+.accredit_content_text1 {
+  font-size: 35rpx;
+}
+
+.accredit_content_text2 {
+  color: #8b8b8b;
+  font-size: 25rpx;
+  margin-top: 30rpx;
+}
+
+.no {
+  width: 100%;
+  font-size: 30rpx;
+  padding: 10rpx 0; 
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+}
+
+.yes {
+  color: #fff;
+  margin: 40rpx 0 20rpx 0;
+}

@@ -1,0 +1,348 @@
+<import src="../../template/orderlist/orderlist.wxml" />
+<view class="container">
+  <block wx:if="{{ currentTab == 1}}">
+    <view class="swiper-tab">
+      <view class="swiper-tab-list {{currentNum == 0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">租赁订单</view>
+      <view class="swiper-tab-list {{currentNum == 1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待签收</view>
+      <view class="swiper-tab-list {{currentNum == 2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">待归还</view>
+      <view class="swiper-tab-list {{currentNum == 3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">历史订单</view>
+    </view>
+    <swiper current="{{currentNum}}" bindchange="change" class='bigs'>
+      <!--租赁订单  -->
+      <swiper-item class="swiper_item1">
+        <scroll-view scroll-y class='scroll_big'>
+          <block wx:for="{{rent_list}}" wx:key="{{index}}">
+            <view class='small'>
+              <view class="small_box clearfix">
+                <view class='cha'>
+                  <image class='img' mode='widthFix' src='../img/x.png' bindtap='tang' id="{{item.goods_id}}" data-order="{{item.order_sn}}" data-goodscol="{{item.goods_color_id}}"></image>
+                </view>
+                <view class='small_l'>
+                  <view class='imgs'>
+                    <image class='img' mode='widthFix' src='{{item.goods_img}}'></image>
+                  </view>
+                  <block wx:if="{{item.store_count == 0 }}">
+                    <view class="goods_num">待返架</view>
+                  </block>
+                  <block wx:elif="{{item.store_count <= 3}}">
+                    <view class="goods_num">仅剩{{item.store_count}}件</view>
+                  </block>
+                </view>
+                <view class='small_r'>
+                  <view class='name' style="padding-right: 30rpx;">{{item.goods_name}}</view>
+                  <view class='color'>颜色:{{item.goods_color}}</view>
+                  <view class='num clearfix'>
+                      <view class='jian cc' bindtap='{{item.activity ? "" : "tests"}}' data-goodscolorid="{{item.goods_color_id}}" data-cc="{{index}}">-</view>
+                      <view class="zu_inp cc">{{item.goods_num}}</view>
+                      <view class='jia cc' bindtap='{{item.activity ? "" : "adds"}}' data-goodscolorid="{{item.goods_color_id}}" data-cc="{{index}}">+</view>
+                      <span>租期:{{item.rent_price}}元/{{item.rent_day}}天</span>
+                    </view>
+                </view>
+              </view>
+              <block wx:if="{{item.activity}}">
+                <view class="small_box2">
+                  <view class="small_box2_name">{{item.activity.name}}</view>
+                  <view class="small_box2_text">{{item.activity.intro}}
+                    <block wx:if="{{item.activity.end_time}}">
+                      ，优惠倒计时
+                    </block>
+                  </view>
+                  <view class="small_box2_time">{{arrTime[index]}}</view>
+                </view>
+              </block>
+            </view>
+          </block>
+
+          <block wx:if="{{rent_list.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+
+        </scroll-view>
+        <view class='over' wx:if='{{rent_list.length != 0}}' bindtap='zu_over'>结算</view>
+      </swiper-item>
+      <!--待签收  -->
+      <swiper-item>
+        <scroll-view scroll-y class='scroll_bigs'>
+          <block wx:for="{{sign_list}}" wx:for-item="b" wx:key >
+            <view class='small'>
+
+              <view class="small_top">
+                订单编号：<text selectable>{{b.order_sn}}</text>
+              </view>
+
+              <template wx:for="{{b.list}}" wx:for-item="p" wx:key is="orderlist" data="{{p}}"></template>
+
+              <view class='bottom clearfix'>
+                <view class='type' data-type="{{b.order_type}}">订单状态:{{b.order_type==2 ? '已购买' : '已租赁'}}</view>
+                <view class='right float_r'>
+                  <view class='lefts float_l' catchtap='{{b.shipping_code==0? "no_see":"see"}}' data-order="{{b.order_sn}}">查看物流</view>
+                  <block wx:if="{{b.shipping_code}}">
+                    <view class='rights float_l' catchtap='notarize' data-order="{{b.order_sn}}" style="border: 1px solid #f33e35;color:#f33e35;">确认收货</view>
+                  </block>
+                  <block wx:else>
+                    <view class='rights float_l' catchtap='notarize' data-order="{{b.order_sn}}" style="border: 1px solid #ccc;color:#ccc;">确认收货</view>
+                  </block>
+                </view>
+              </view>
+
+
+            </view>
+          </block>
+          <block wx:if="{{sign_list.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!--待归还  -->
+      <swiper-item>
+        <scroll-view scroll-y class='scroll_bigs'>
+          <view class='back clearfix'>
+            <block wx:for="{{back_list}}" wx:key wx:for-item="c" wx:for-index="dex">
+              <view class='big_back clearfix' wx:if="{{c.list.length > 0}}">
+                <view class='small_back clearfix'>
+                  <view class='order'>订单编号：<text selectable>{{c.order_sn}}</text></view>
+                    <block wx:for="{{c.list}}" wx:key wx:for-item="p" wx:for-index="in">
+
+                      <template is="orderlist" data="{{p}}"></template>
+
+                      <view class='bottoms {{c.list.length > 1 ? "bottomsbor" : ""}}'>
+                        <view class="bottoms_main">
+                          <view class="a1_col" style="width: 70%;">
+                            <block wx:if="{{p.buy_num > 0}}">
+                              [已买断{{p.buy_num}}件]
+                            </block>
+                            再付
+                            <block wx:if="{{p.give_back_days > 0}}">
+                              {{p.goods_price - p.pledge_price - p.rent_price + p.coupon_price}}
+                            </block>
+                            <block wx:else>
+                              {{p.goods_price - p.pledge_price}}
+                            </block>
+                            元买断该商品，可享受免原租金哦~</view>
+                          <block wx:if="{{ p.is_buy || !p.is_give_back }}">
+                            <view class='backs red_col' style="border: 1px solid #f33e35;" catchtap='want_buy' data-id='{{p.goods_id}}' data-buyoutlist="{{p}}">我要买断</view>
+                          </block>
+                          <block wx:else>
+                            <view class='backs no_back' catchtap='give_back'>我要买断</view>
+                          </block>
+                        </view>
+                        <view class="bottoms_main" wx:if="{{p.is_overdue || p.relet_price_list.length != 0}}">
+                          <view class="a1_col text_hidden">续租{{p.relet_price_list[0].name}} ~ {{p.relet_price_list[p.relet_price_list.length-1].name}} [{{p.relet_price_list.length}}种选择]</view>
+
+                          <block wx:if="{{ p.is_buy || !p.is_give_back }}">
+                            <picker class="backs want" data-reletpricelist="{{p.relet_price_list}}" data-ordersn="{{p.order_sn}}" data-colorid="{{p.goods_color_id}}" data-gid="{{p.goods_id}}" bindchange="reletPickerChange" value="{{price_listIndex}}" range="{{p.relet_price_list}}" range-key="name">
+                                <view class="picker">
+                                  我要续租
+                                </view>
+                              </picker>
+                          </block>
+                          
+                          <block wx:else>
+                            <view class='backs want no_back' catchtap='give_back'>我要续租</view>
+                          </block>
+
+
+                        </view>
+                        <view class="bottoms_main">
+                          <view class="a1_col" style="width: 70%;">{{p.give_back_day}}</view>
+                          <view class='{{p.is_give_back? "backs no_back" : "backs"}}' catchtap='give_back' data-order="{{p.order_sn}}" data-id="{{p.goods_id}}" data-colid="{{p.goods_color_id}}"
+                            data-back="{{p.is_give_back}}">{{p.is_give_back? "已申请" : "申请还表"}}</view>
+                        </view>
+                      </view>
+                    </block>
+
+                </view>
+              </view>
+              <view class="tiao" wx:if="{{c.list.length > 0}}"></view>
+            </block>
+            <block wx:if="{{back_list.length == 0}}">
+              <import src="../../template/nodata/nodata.wxml" />
+              <template is="nodata"></template>
+            </block>
+          </view>
+        </scroll-view>
+        
+      </swiper-item>
+      <!-- 历史订单 -->
+      <swiper-item>
+        <scroll-view scroll-y class='scroll_bigs'>
+          <block wx:for="{{historyList}}" wx:for-item="itdata" wx:key >
+            <view class='historyList clearfix'>
+              <view class="historyList_orders">订单编号：<text selectable>{{itdata.order_sn}}</text></view>
+
+              <block wx:for="{{itdata.list}}" wx:for-item="p" wx:key>
+                <template is="orderlist" data="{{p}}"></template>
+                  <view class="historyList_bottom clearfix">
+                    <view class="historyList_btn {{ p.is_comment ? '' : 'active' }}" data-str="{{ p.is_comment ? '查看评价' : '我要评价' }}"
+                      data-goodsid="{{p.goods_id}}" data-order="{{p.order_sn}}" bindtap="goweb">{{ p.is_comment ? '查看评价' : '我要评价' }}
+                    </view>
+                  </view>
+              </block>
+
+            </view>
+          </block>
+          <block wx:if="{{historyList.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </block>
+  <block wx:if="{{ currentTab == 2}}">
+    <view class="swiper-tab">
+      <view class="swiper-tab-list {{currentNum == 0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">购买订单</view>
+      <view class="swiper-tab-list {{currentNum == 1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">待签收</view>
+      <view class="swiper-tab-list {{currentNum == 2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">历史订单</view>
+    </view>
+    <swiper current="{{currentNum}}" bindchange="change" class='bigs'>
+      <!--购买订单  -->
+      <swiper-item class="swiper_item1">
+        <scroll-view scroll-y class='scroll_big'>
+          <block wx:for="{{buy_list}}" wx:key>
+            <view class='small'>
+              <view class="small_box clearfix">
+                <view class='cha'>
+                  <image class='img' mode='widthFix' src='../img/x.png' bindtap='tang' id="{{item.goods_id}}" data-order="{{item.order_sn}}" data-goodscol="{{item.goods_color_id}}"></image>
+                </view>
+                <view class='small_l'>
+                  <view class='imgs'>
+                    <image class='img' mode='widthFix' src='{{item.goods_img}}'></image>
+                    <block wx:if="{{item.store_count == 0 }}">
+                      <view class="goods_num">待返架</view>
+                    </block>
+                    <block wx:elif="{{item.store_count <= 3}}">
+                      <view class="goods_num">仅剩{{item.store_count}}件</view>
+                    </block>
+                  </view>
+                </view>
+                <view class='small_r'>
+                  <view class='name' style="padding-right: 30rpx;">{{item.goods_name}}</view>
+                  <view class='color'>颜色:{{item.goods_color}}</view>
+                  <view class='num clearfix'>
+                    <view class='jian cc' bindtap='test' data-goodscolorid="{{item.goods_color_id}}" data-cc="{{index}}">-</view>
+                    <view class='zu_inp cc'>
+                      <input type='text' value='{{item.goods_num}}'></input>
+                    </view>
+                    <view class='jia cc' bindtap='add' data-goodscolorid="{{item.goods_color_id}}" data-cc="{{index}}" bindchange="bindManual">+</view>
+                    <span>售价:￥{{item.goods_price}}</span>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{buy_list.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+        </scroll-view>
+        <view class='over' wx:if='{{buy_list.length != 0}}' bindtap='buy_over'>结算</view>
+      </swiper-item>
+      <!--代签收  -->
+      <swiper-item>
+        <scroll-view scroll-y class='scroll_bigs'>
+          <block wx:for="{{sign_list}}" wx:for-item="b" wx:key >
+            <view class='small'>
+              <view class="small_top">
+                订单编号：<text selectable>{{b.order_sn}}</text>
+              </view>
+              <block wx:for="{{b.list}}" wx:for-item="p" wx:key>
+                <template is="orderlist" data="{{p}}"></template>
+              </block>
+              <view class='bottom clearfix'>
+                <view class='type' data-type="{{b.order_type}}">订单状态:{{b.order_type==2 ? '已购买' : '已租赁'}}</view>
+                <view class='right float_r'>
+                  <view class='lefts float_l' catchtap='{{b.shipping_code==0? "no_see":"see"}}' data-order="{{b.order_sn}}">查看物流</view>
+                  <block wx:if="{{b.shipping_code}}">
+                    <view class='rights float_l' catchtap='notarize' data-order="{{b.order_sn}}" style="border: 1px solid #f33e35;color:#f33e35;">确认收货</view>
+                  </block>
+                  <block wx:else>
+                    <view class='rights float_l' catchtap='notarize' data-order="{{b.order_sn}}" style="border: 1px solid #ccc;color:#ccc;">确认收货</view>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </block>
+          <block wx:if="{{sign_list.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+        </scroll-view>
+      </swiper-item>
+      <!-- 历史订单 -->
+      <swiper-item>
+        <scroll-view scroll-y class='scroll_bigs'>
+          <block wx:for="{{historyList}}" wx:for-item="itdata" wx:key>
+            <view class='historyList clearfix'>
+              <view class="historyList_orders">订单编号：<text selectable>{{itdata.order_sn}}</text></view>
+              <block wx:for="{{itdata.list}}" wx:for-item="p" wx:key="{{index}}">
+                <template is="orderlist" data="{{p}}"></template>
+                <view class="historyList_btn {{ p.is_comment ? '' : 'active' }}" data-str="{{ p.is_comment ? '查看评价' : '我要评价' }}"
+                  data-goodsid="{{p.goods_id}}" data-order="{{p.order_sn}}" bindtap="goweb">{{ p.is_comment ? '查看评价' : '我要评价' }}</view>
+              </block>
+            </view>
+          </block>
+          <block wx:if="{{historyList.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </block>
+  <!-- 遮罩层 -->
+  <view class="mask_layer" wx:if="{{buy_out}}" bindtap="close_buy"></view>
+
+  <!-- 待归还弹出层 -->
+  <view class="buy_out" wx:if="{{buy_out}}">
+    <view class="closebuy_out" bindtap="close_buy">
+      <image mode="widthFix" style="width: 100%;" src="../img/x.png"></image>
+    </view>
+    <view style="color: #71ba2a; padding: 10rpx 40rpx 15rpx;">
+      钱包
+      <view class="float_r">￥{{mymoney}}</view>
+    </view>
+    <view class="tiao"></view>
+    <view class="line">
+      数量
+      <view class="float_r linenum" wx:if="{{maxgoods_num > 1}}">
+        <view class="box" bindtap="subtract" style="padding: 0 10rpx;border-radius: 5px 0 0 5px;">-</view><view class="box">{{goods_num}}</view><view class="box" bindtap="addbuy_over" style="padding: 0 10rpx;border-radius: 0 5px 5px 0;">+</view>
+      </view>
+      <view class="float_r" wx:else>
+        x{{goods_num}}
+      </view>
+    </view>
+    <view class="line">
+      售价
+      <view class="float_r">￥{{goods_price}}</view>
+    </view>
+    <view class="line">
+      押金
+      <view class="float_r">-￥{{pledge_price}}</view>
+    </view>
+    <view class="line" wx:if="{{buyoutlist.give_back_days > 0}}">
+      租金
+      <text style="font-size: 12px;color: #ccc;">(租金 = 原租金 - 优惠劵)</text>
+      <view class="float_r">-￥{{rent_price}}</view>
+    </view>
+    <view class="line" wx:else>
+      租金
+      <text style="font-size: 14px;color: #666;">(逾期需缴纳租金 {{rent_price}}元)</text>
+      <view class="float_r">-￥0</view>
+    </view>
+    <view style="padding: 15rpx 40rpx ;">
+      应付
+      <view class="float_r">￥{{cope_price}}</view>
+    </view>
+    <view class="tiao"></view>
+    <view style="padding: 15rpx 40rpx ;">
+      实付
+      <text style="font-size: 12px;color: #ccc;">(实付 = 钱包 - 应付)</text>
+      <view class="float_r">￥{{outofpocket >= 0 ? 0 : outofpocket * -1}}</view>
+    </view>
+    <view class="tiao"></view>
+    <view class="buy_out_btn" bindtap="confirm">确认支付</view>
+  </view>
+</view>

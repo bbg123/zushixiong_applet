@@ -1,0 +1,26 @@
+.e_name{
+  font-size: 26px;
+  padding: 40rpx;
+  font-weight: bold;
+}
+.title{
+  padding: 40rpx;
+  padding-top: 0;
+}
+.fours{
+  background: #fff;
+  margin-top: 30rpx;
+}
+.small_fours{
+  padding: 0 40rpx;
+  font-size: 16px;
+  line-height: 160rpx;
+  border-bottom: 1px solid #f4f4f4;
+}
+.imgsa{
+  float: right;
+  width: 60rpx;
+}
+.imgsa .img{
+  vertical-align: middle;
+}

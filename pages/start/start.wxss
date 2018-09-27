@@ -1,0 +1,46 @@
+.container {
+  background: #000;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+
+.header {
+  height: 1106rpx;
+}
+
+.top {
+  color: #fff;
+  line-height: 80rpx;
+  text-align: right;
+  font-size: 16px;
+}
+
+.imgs {
+  width: 40rpx;
+  margin: 0 10rpx;
+}
+
+@media screen and (max-width:320px) {
+  .header {
+    height: 1084rpx;
+  }
+  .title{
+    bottom: 62rpx  !important;
+  }
+}
+@media screen and (min-width:414px) {
+  .header {
+    height: 1118rpx;
+  }
+}
+.wx-swiper-dots-horizontal{
+  margin-bottom: 140rpx;
+}
+.title{
+  position: absolute;
+  bottom: 90rpx;
+  color: #fff;
+  padding: 40rpx;
+  font-size: 14px;
+  background: linear-gradient(rgba(160, 159, 159, 0.3), black)
+}

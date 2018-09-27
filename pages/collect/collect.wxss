@@ -1,0 +1,180 @@
+/*头部  */
+
+.container {
+  background: #f8f8f8;
+}
+
+.scroll_big {
+  height: 100%;
+}
+
+.my {
+  width: 89%;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 0 40rpx;
+  background: #fff;
+  margin-top: 40rpx;
+  padding-top: 14rpx;
+  height: 230rpx;
+}
+
+.my_brands {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.right {
+  float: right;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.right_img {
+  float: right;
+  width: 17rpx;
+  margin-left: 10rpx;
+}
+
+.head_img {
+  width: 134rpx;
+  height: 137rpx;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+
+.heads_img {
+  padding-bottom: 44rpx;
+}
+
+.img_hot {
+  height: 100%;
+}
+
+.body {
+  width: 89%;
+  margin-top: 20rpx;
+  background: #fff;
+  line-height: 106rpx;
+  padding: 5rpx 40rpx;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.body_div {
+  margin: 20rpx;
+}
+
+.scrolls {
+  margin: 20rpx;
+}
+
+.small_div {
+  display: inline-block;
+  width: 345rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.small_div:nth-child(even){
+  margin-left: 22rpx;
+}
+
+.top_img {
+  width: 100%;
+}
+.pay_bottom{
+  position: relative;
+  padding: 20rpx;
+  padding-right:0;
+}
+.name {
+  line-height: 60rpx;
+  height: 50rpx;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  float: left;
+}
+.pay{
+  font-size: 12px;
+}
+.pay span{
+  font-size: 12px;
+  color: #bbb;
+}
+.tong{
+  font-size: 10px;
+  color: #bbb;
+}
+.experience{
+  width: 100rpx;
+  height: 50rpx;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  position: absolute;
+  right: 10rpx;
+  bottom: 15rpx;
+  text-align: center;
+  line-height: 50rpx;
+}
+/*选品牌弹窗  */
+.tang{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  background: #fff;
+  width: 100%;
+  z-index: 55;
+  margin-bottom:100rpx;
+}
+.tang{
+  background: #f8f8f8;
+}
+.logo{
+  width: 90rpx;
+  margin-left: 30rpx;
+}
+.img{
+  vertical-align: middle;
+}
+.top{
+  padding-left: 30rpx;
+}
+.brand_name{
+  margin-left: 30rpx;
+}
+.bottom{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+.view{
+  width: 50%;
+  float: left;
+  text-align: center;
+  line-height: 100rpx;
+}
+.view:nth-child(1){
+  background: #eee;
+}
+.view:nth-child(2){
+  background: #f33e35;
+  color: #fff;
+}
+.tos_img{
+  background: #fff;
+  padding: 30rpx;
+}
+.tos_img view{
+  width: 30rpx;
+}

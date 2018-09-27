@@ -1,0 +1,43 @@
+<view class="container">
+  <scroll-view class='big_scroll' scroll-y lower-threshold="100px" scroll-with-animation="true"
+  scroll-top="{{tops}}" bindscroll="scollsd" bindscrolltolower="bottomscroll">
+    <view class='ding'>
+      <swiper class='header' indicator-dots="true" autoplay="true" interval="2000" duration="500" circular="true" indicator-color="#c8c8c8">
+        <block wx:for="{{img_list}}" wx:key>
+          <swiper-item data-m="{{item.link.m}}" data-params="{{item.link.params.id}}" bindtap="jumps">
+            <image src="{{item.image}}" class="img" mode='widthFix' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='choss clearfix' style="top:{{imgheight}};{{top < 0 ? 'position: fixed;' : ''}}">
+      <view class='zi {{"全部"==keyword? "active":""}}' bindtap='touch' data-cordw="全部">全部</view>
+      <view class='zi {{"男士机械"==keyword? "active":""}}' bindtap='touch' data-cordw="男士机械">男士机械</view>
+      <view class='zi {{"男士石英"==keyword? "active":""}}' bindtap='touch' data-cordw="男士石英">男士石英</view>
+      <view class='zi {{"女士机械"==keyword? "active":""}}' bindtap='touch' data-cordw="女士机械">女士机械</view>
+      <view class='zi {{"女士石英"==keyword? "active":""}}' bindtap='touch' data-cordw="女士石英">女士石英</view>
+    </view>
+
+    <view class='big' style="margin-top: {{headheight}}px;">
+      <block wx:for="{{items}}" wx:key>
+        <view class='small clearfix' bindtap="jumpss" data-id="{{item.goods_id}}">
+          <view class='yuanquan'>{{index+1}}</view>
+          <view class='want'>我要租</view>
+          <view class='left float_l'>
+            <image class='img' mode='widthFix' src="{{item.goods_img}}"></image>
+          </view>
+          <view class='right float_l'>
+            <view class='name'>{{item.goods_name}}</view>
+            <view class="tip">{{item.goods_features}}</view>
+            <view class='shop'>售价: {{item.shop_price}}元</view>
+            <view class='rent'>租金:
+              <span>{{item.rent_price_day}}</span>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <!-- <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view> -->
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+  </scroll-view>
+</view>

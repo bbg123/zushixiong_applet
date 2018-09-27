@@ -1,0 +1,22 @@
+<view class="container">
+  <view class='imgs'>
+    <block wx:for="{{top_img}}" wx:key>
+      <view class='top_img'>
+        <image class='img' mode='widthFix' src='{{item}}'></image>
+      </view>
+    </block>
+  </view>
+  <view class='tiao'></view>
+  <view class='zi'>相关推荐
+    <view class='g_img'>
+      <image class='img' mode='widthFix' src='../img/dowms.png'></image>
+    </view>
+  </view>
+  <view class='tiao'></view>
+  <view class='watch'>
+
+    <import src="../../template/goodslist/goodslist.wxml" />
+    <template is="goodslist" data="{{items}}"></template>
+
+  </view>
+</view>

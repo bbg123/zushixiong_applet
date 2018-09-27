@@ -1,0 +1,79 @@
+.title{
+  font-size: 28px;
+  color: #979797;
+  margin-bottom: 40rpx;
+  margin-left: 40rpx;
+}
+.top{
+  padding: 40rpx;
+}
+.q_a{
+  padding: 40rpx 0;
+  border-bottom: 1px solid #CBCBCB;
+}
+.q{
+  font-weight: bold;
+}
+.a{
+  line-height: 60rpx;
+  margin-top: 20rpx;
+  font-size: 14px;
+}
+.q view{
+  width: 40rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+.dowm{
+  transform: rotate(180deg)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bottom{
+  font-size: 16px;
+  padding: 50rpx;
+}
+.our{
+  font-size: 20px;
+  margin-bottom: 50rpx;
+  margin-top: 50rpx;
+}
+.ke{
+  margin-bottom: 10rpx;
+}
+.ke span{
+  color: #cd684a;
+}
+.none{
+  display: none
+}
+.block{
+  display: block;
+}

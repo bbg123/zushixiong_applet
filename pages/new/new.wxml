@@ -1,0 +1,21 @@
+<view class="container">
+  <scroll-view class='big_scroll' scroll-y lower-threshold="100px" scroll-with-animation="true"
+  scroll-top="{{tops}}" bindscroll="scollsd">
+    <view class="topimg">
+      <image mode="widthFix" class="topimg_main" src="http://www.zushixiong.com/public/uploads/ad/96/908fe68df8d44d0905ea134769cc0a.gif"></image>
+    </view>
+    <view class='header' style="top:{{imgheight}};{{top < 0 ? 'position: fixed;' : ''}}">
+      <block wx:for="{{searchList}}" wx:key="{{index}}">
+        <view class='name {{wordinx === index? "active":""}}' data-cordw="{{item}}" data-index="{{index}}" bindtap='touch'>{{item}}</view>
+      </block>
+    </view>
+  
+    <view class='big' style="margin-top: {{headheight}}px;">
+
+      <import src="../../template/goodslist/goodslist.wxml"/>
+      <template is="goodslist" data="{{items}}"></template>
+
+    </view>
+
+  </scroll-view>
+</view>

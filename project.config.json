@@ -1,0 +1,203 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.5",
+	"appid": "wx8443716237ff6c4a",
+	"projectname": "zushixiong",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 27,
+			"list": [
+				{
+					"id": 0,
+					"name": "start",
+					"pathName": "pages/start/start",
+					"query": "num=0"
+				},
+				{
+					"id": 1,
+					"name": "me",
+					"pathName": "pages/me/me",
+					"query": "shareCode=s7vu1033"
+				},
+				{
+					"id": -1,
+					"name": "collect",
+					"pathName": "pages/collect/collect",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my_discover",
+					"pathName": "pages/my_discover/my_discover",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "footprint",
+					"pathName": "pages/footprint/footprint",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bask",
+					"pathName": "pages/bask/bask",
+					"query": ""
+				},
+				{
+					"id": 8,
+					"name": "brand",
+					"pathName": "pages/brand/brand",
+					"query": "id=20"
+				},
+				{
+					"id": 9,
+					"name": "topic",
+					"pathName": "pages/topic/topic",
+					"query": "id=4"
+				},
+				{
+					"id": -1,
+					"name": "hot",
+					"pathName": "pages/hot/hot",
+					"query": "typs=1"
+				},
+				{
+					"id": 10,
+					"name": "home",
+					"pathName": "pages/Home/home",
+					"query": "type=0&shareCode=789"
+				},
+				{
+					"id": 11,
+					"name": "choimmer",
+					"pathName": "pages/choimmer/choimmer",
+					"query": "id=87&shareCode=s7vu1033"
+				},
+				{
+					"id": 13,
+					"name": "review",
+					"pathName": "pages/review/review",
+					"query": "id=87"
+				},
+				{
+					"id": 14,
+					"name": "address",
+					"pathName": "pages/address/address",
+					"query": "type=1"
+				},
+				{
+					"id": 15,
+					"name": "new",
+					"pathName": "pages/new/new",
+					"query": "type=1"
+				},
+				{
+					"id": -1,
+					"name": "365",
+					"pathName": "pages/365/365",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "brands",
+					"pathName": "pages/brands/brands",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "getroll",
+					"pathName": "pages/getroll/getroll",
+					"query": ""
+				},
+				{
+					"id": 18,
+					"name": "order",
+					"pathName": "pages/order/order",
+					"query": "type=1"
+				},
+				{
+					"id": 20,
+					"name": "see_k",
+					"pathName": "pages/see_k/see_k",
+					"query": "order=1106285453195208"
+				},
+				{
+					"id": -1,
+					"name": "my_wallet",
+					"pathName": "pages/my_wallet/my_wallet",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "my_pay",
+					"pathName": "pages/my_pay/my_pay",
+					"query": ""
+				},
+				{
+					"id": 23,
+					"name": "fa_x",
+					"pathName": "pages/fa_x/fa_x",
+					"query": "id=112"
+				},
+				{
+					"id": 24,
+					"name": "discuss_details",
+					"pathName": "pages/discuss_details/discuss_details",
+					"query": ""
+				},
+				{
+					"id": 24,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": "link=h5/draw1808&id=2"
+				},
+				{
+					"id": -1,
+					"name": "coupon",
+					"pathName": "pages/coupon/coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "getuserinfo",
+					"pathName": "pages/getuserinfo/getuserinfo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "tests",
+					"pathName": "pages/tests/tests"
+				}
+			]
+		}
+	}
+}

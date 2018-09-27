@@ -1,0 +1,78 @@
+{
+  "pages": [
+    "pages/Home/home",
+    "pages/choimmer/choimmer",
+    "pages/fa_x/fa_x",
+    "pages/fabu_fa/fabu_fa",
+    "pages/ping_x/ping_x",
+    "pages/discuss_details/discuss_details",
+    "pages/me/me",
+    "pages/brands/brands",
+    "pages/order/order",
+    "pages/history/history",
+    "pages/collect/collect",
+    "pages/address/address",
+    "pages/my_pay/my_pay",
+    "pages/login/login",
+    "pages/coupon/coupon",
+    "pages/index/index",
+    "pages/new/new",
+    "pages/add_adress/add_adress",
+    "pages/synopsis/synopsis",
+    "pages/proposal/proposal",
+    "pages/365/365",
+    "pages/hot/hot",
+    "pages/problem/problem",
+    "pages/zu_over/zu_over",
+    "pages/topic/topic",
+    "pages/start/start",
+    "pages/brand/brand",
+    "pages/protect/protect",
+    "pages/set/set",
+    "pages/problem_s/problem_s",
+    "pages/see_k/see_k",
+    "pages/line/line_item",
+    "pages/give_back/give_back",
+    "pages/logs/logs",
+    "pages/my_discover/my_discover",
+    "pages/footprint/footprint",
+    "pages/bask/bask",
+    "pages/getroll/getroll",
+    "pages/review/review",
+    "pages/my_wallet/my_wallet",
+    "pages/test/test",
+    "pages/join_goods/join_goods",
+    "pages/tests/tests"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "租师兄",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6d6d6d",
+    "selectedColor": "#71ba2a",
+    "list": [{
+      "pagePath": "pages/Home/home",
+      "text": "首页",
+      "iconPath": "pages/icon/home.png",
+      "selectedIconPath": "pages/icon/home2.png"
+    }, {
+      "pagePath": "pages/index/index",
+      "text": "选表",
+      "iconPath": "pages/icon/category.png",
+      "selectedIconPath": "pages/icon/category2.png"
+    }, {
+      "pagePath": "pages/collect/collect",
+      "text": "装备单",
+      "iconPath": "pages/icon/money.png",
+      "selectedIconPath": "pages/icon/money2.png"
+    }, {
+      "pagePath": "pages/me/me",
+      "text": "我的",
+      "iconPath": "pages/icon/me.png",
+      "selectedIconPath": "pages/icon/me2.png"
+    }]
+  }
+}

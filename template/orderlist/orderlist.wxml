@@ -1,0 +1,26 @@
+<template name="orderlist">
+    <view class='smalls clearfix'  data-id="{{p.goods_id}}" data-orders="{{p.order_sn}}" catchtap='xiang'>
+      <view class='small_l'>
+        <view class='imgs'>
+          <image class='img' mode='widthFix' src='{{p.goods_img}}'></image>
+        </view>
+      </view>
+      <view class='small_r'>
+        <view class='name text_hidden2'>{{p.goods_name}}</view>
+        <view class='color'>颜色:{{p.goods_color}}</view>
+        <view wx:if="{{p.type == 2}}">
+          <view class='buy_money'>￥{{p.goods_price}}
+            <span class="nums">x{{p.goods_num}}</span>
+          </view>
+        </view>
+        <view wx:if="{{p.type == 1}}">
+          <view class='zu_pay ya_pay'>租金￥{{p.rent_price}}
+            <span class="nums">x{{p.goods_num - (p.buy_num || 0)}}</span>
+          </view>
+          <view class='ya_pay'>押金￥{{p.pledge_price}}
+            <span class="nums">x{{p.goods_num - (p.buy_num || 0)}}</span>
+          </view>
+        </view>
+      </view>
+    </view>
+</template>

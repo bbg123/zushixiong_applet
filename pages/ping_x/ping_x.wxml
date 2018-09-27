@@ -1,0 +1,25 @@
+<view class="container">
+  <view class='tiao'></view>
+  <block wx:for="{{items}}" wx:key wx:for-item="item">
+    <view class='big'>
+      <view class='top clearfix'>
+        <view class='top_img float_l'>
+          <image class='img' mode='widthFix' src='{{item.avatar}}'></image>
+        </view>
+        <view class='name float_l'>{{item.nickname}}</view>
+      </view>
+      <view class='title'>{{item.content}}</view>
+      <scroll-view scroll-x class='x_scroll'>
+        <view style='width:{{widths}}rpx'>
+          <block wx:for="{{item.images}}" wx:key wx:for-item="zz">
+            <view class='cent_img'>
+              <view class='small_img'>
+                <image class='img' mode='widthFix' src='{{zz.file}}'></image>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </block>
+</view>

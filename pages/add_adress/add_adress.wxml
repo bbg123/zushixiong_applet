@@ -1,0 +1,45 @@
+<view class="container">
+
+  <view class='big'>
+    <view class='e_name'>ADD ADDRESS</view>
+    <view class='title'>{{types==1? "修改收货地址": "添加收货地址"}}</view>
+    <view class='name'>收货人
+      <input type='text' placeholder='请填写' bindblur="people" value='{{name}}'></input>
+    </view>
+    <view class='name'>手机号码
+      <input type='number' placeholder='请填写' bindblur="phone" maxlength="11" value='{{phone}}'></input>
+    </view>
+    <view class='name'>所在地区
+      <view class="input">
+        <view class='' focus="{{focus}}" bindtap='open'>{{strs==0? "请选择" : strs}}</view>
+      </view>
+    </view>
+    <view class='name'>详细地址
+      <input type='text' placeholder='请填写' bindblur="where" value='{{where}}'></input>
+    </view>
+    <view class='adds' bindtap='adds'>{{types==1? "确认修改": "确认添加"}}</view>
+  </view>
+</view>
+<view wx:if="{{condition}}" class="citypicker clearfix">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader clearfix">
+      <view bindtap="open" class="city-cancel">取消</view>
+      <view bindtap="opens" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <block wx:for="{{provinces}}" wx:key="item">
+        <view style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </block>
+    </picker-view-column>
+    <picker-view-column>
+      <block wx:for="{{citys}}" wx:key="item">
+        <view style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </block>
+    </picker-view-column>
+    <picker-view-column>
+      <block wx:for="{{countys}}" wx:key="item">
+        <view style="line-height: 50px;padding-left:10px;">{{item}}</view>
+      </block>
+    </picker-view-column>
+  </picker-view>
+</view>

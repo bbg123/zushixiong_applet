@@ -1,0 +1,37 @@
+<view class="container">
+  <view class='header'>
+    <view class='float_l borr'>已发 {{total}}</view>
+    <view class='float_l borr'>被赞 {{like_num}}</view>
+    <view class="issue float_l" bindtap="goissue"><image class="issueimg" src="../img/issue@3x.png"></image>发布</view>
+  </view>
+
+  <view class='masonry'>
+      <view>
+        <block wx:for="{{shai_items}}" wx:key wx:for-item="vv">
+          <view class='item' data-id="{{vv.id}}" catchtap='jump_x'>
+            <view class='fa_imgs'>
+              <image class='img' mode='widthFix' src='{{vv.images[0].file}}'></image>
+            </view>
+            <view class='shai_title'>{{vv.content}}</view>
+            <view class='top_head clearfix'>
+              <view class='head float_l'>
+                <image class='img' mode='widthFix' src='{{vv.avatar}}'></image>
+              </view>
+              <view class='shai_name float_l'>{{vv.nickname}}</view>
+              <!--发现点赞  -->
+              <view class='zang float_r' data-id='{{vv.id}}' catchtap='fazan'>
+                <view class='share_imgs '>
+                  <image class='img' mode='widthFix' src='../img/{{!vv.is_like? "like@2x.png" : "like2@2x.png"}}'></image>
+                </view>
+                <span>{{vv.like_num}}</span>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+  </view>
+  <block wx:if="{{shai_items.length == 0}}">
+    <import src="../../template/nodata/nodata.wxml" />
+    <template is="nodata"></template>
+  </block>
+</view>

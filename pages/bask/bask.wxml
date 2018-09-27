@@ -1,0 +1,52 @@
+<!--晒单列表  -->
+<view class='big_dan'>
+  <block wx:for="{{shai_items}}" wx:key wx:for-item="vv" wx:for-index="index">
+    <view class='small_shai'>
+      <view class='top_head clearfix'>
+        <view class='head float_l'>
+          <image class='img' mode='widthFix' src='{{vv.avatar}}'></image>
+        </view>
+        <view class='shai_name float_l'>{{vv.nickname}}</view>
+      </view>
+      <view class='shai_title'>{{vv.content}}</view>
+      <!--横向图片  -->
+      <scroll-view scroll-x>
+        <view class='shai_imgs'>
+          <view>
+            <block wx:for="{{vv.images}}" wx:key wx:for-item="cc">
+              <view bindtap="tapimg" class='shai_img' data-list="{{vv.images}}"  data-src="{{cc.file}}">
+                <image class='img' mode='aspectFill' src='{{cc.file}}'></image>
+              </view>
+            </block>
+          </view>
+        </view>
+      </scroll-view>
+      <view class='shai_bottom clearfix '>
+        <button class='share carebtn border-r' open-type="share">
+          <view class='share_img '>
+            <image class='img' mode='widthFix' src='../img/share.png'></image>
+          </view>
+          分享
+        </button>
+        <!--评论点赞  -->
+        <view class='share border-r' data-id="{{vv.id}}" catchtap='fazan'>
+          <view class='share_img' >
+            <image class='img' mode='widthFix' src='../img/{{!vv.is_like? "like@2x.png" : "like2@2x.png"}}'></image>
+          </view>
+          <span class="float_l">{{vv.like_num}}</span>
+        </view>
+        <view class='share' data-id='{{vv.goods_id}}' catchtap='jump'>
+          <view class='share_img'>
+            <image class='img' mode='widthFix' src='../img/shop.png'></image>
+          </view>
+          商品
+        </view>
+      </view>
+
+    </view>
+  </block>
+  <block wx:if="{{shai_items.length == 0}}">
+    <import src="../../template/nodata/nodata.wxml" />
+    <template is="nodata"></template>
+  </block>
+</view>

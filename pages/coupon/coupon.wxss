@@ -1,0 +1,122 @@
+page{
+  background: #f8f8f8;
+}
+.big_scroll{
+  background: #f8f8f8;
+  height: 100%;
+}
+.header{
+  width: 80%;
+  font-size: 18px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0 80rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 20;
+}
+.header .float_l{
+  width: 33.33%;
+  text-align: center;
+  line-height: 80rpx;
+}
+.active{
+    border-bottom: 3px solid #70bb29;
+    color: #70bb29;
+}
+.swiper {
+  height: 100%;
+  padding-top: 80rpx;
+  box-sizing: border-box;
+}
+.is_due {
+  width: 104rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.big{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.small{
+  background: #fff;
+  margin-bottom: 20rpx;
+  display: flex;
+  width: 100%;
+}
+.left{
+  padding:30rpx 20rpx;
+  color: #f33e36;
+  position: relative;
+  border-right: 1px dashed #e6e6e6;
+  box-sizing: border-box;
+  width: 33%;
+  text-align: center;
+}
+.money{
+  font-size: 16px;
+}
+.money span{
+  font-size: 36px;
+}
+.people{
+  font-size: 14px;
+}
+.right{
+  width: 66%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  font-size: 12px;
+}
+.title{
+  margin-bottom: 10rpx;
+  font-size: 16px;
+}
+
+.title1{
+  margin-bottom: 10rpx;
+  font-size: 14px;
+}
+
+.time{
+  color: #989898;
+  margin-top: 10rpx;
+}
+
+.actives{
+  color: #999999 !important;
+}
+
+.getroll_list_txt_pos{
+  background: #f8f8f8;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: -15rpx;
+}
+
+.title_icon {
+  width: 40%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.getroll_list_txt_btn {
+  position: absolute;
+  background-color: #f33e36;
+  padding:8rpx 15rpx;
+  right: 10rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  border-radius: 15px;
+}

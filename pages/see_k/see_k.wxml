@@ -1,0 +1,33 @@
+<view class="container">
+  <view class='top clearfix'>
+    <view class='ul'>
+      <view class='shou float_l {{index==1? "active":"shou"}}' catchtap='taps' data-index="1"> 收件物流</view>
+      <view class='fan float_l {{index==2? "active":"shou"}}' catchtap='taps' data-index="2"> 返程物流</view>
+    </view>
+  </view>
+  <view class='see'>
+    <view class='{{index==2?"none":"see_top clearfix"}}'>
+      <view class='left_img float_l '>
+        <image class='img' mode='widthFix' src='{{order_item.kd_img}}'></image>
+      </view>
+      <view class='left_title float_l'>{{order_item.shipping_name}}</view>
+      <view class='left_titles float_l' bindtap='phone'>联系快递</view>
+    </view>
+    <view class='msg {{index==2?"none":"msg"}}'>
+      <view class='num'>运单编号 : {{order_item.shipping_code}}</view>
+      <view class='num'>收货地址 : {{order_item.address}}</view>
+      <view class='num'>收件人 : {{order_item.consignee}} {{order_item.mobile}}</view>
+    </view>
+  </view>
+  <view class='tiao'></view>
+
+  <view class='where'>
+    <block wx:for="{{info}}" wx:key="index">
+      <view class='zi'>
+        <view class='name'>{{item.AcceptStation}}</view>
+        <view class='time'>{{item.AcceptTime}}</view>
+      </view>
+    </block>
+  </view>
+
+</view>

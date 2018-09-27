@@ -1,0 +1,51 @@
+<view class="container">
+  <scroll-view class='big_scroll' scroll-y>
+    <view class='tiao'></view>
+    <view class='new'>
+      <view class='top_title'>新牌入驻
+        <span>LATEST BRANDS</span>
+      </view>
+      <swiper class='header' indicator-dots="true" circular="true" indicator-color="#c8c8c8">
+        <block wx:for="{{new_list}}" wx:key>
+          <swiper-item bindtap="jumps" wx:key data-id="{{item.id}}" bindtap='jumps'>
+            <image src="{{item.top_img}}" class="img" mode='widthFix' />
+            <view class='brand'>{{item.ename}}</view>
+            <view class='title'>{{item.content}}</view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='tiao'></view>
+    <view class='hot_title'>人气品牌
+        <span>HOT BRANDS</span>
+      </view>
+    <scroll-view scroll-x>
+      <view class='big clearfix' style='width:{{hot_width}}rpx;'>
+        <block wx:for="{{hot_list}}" wx:key>
+          <view class='imgs' data-id="{{item.id}}" bindtap='jumps'>
+            <image class='img' mode='widthFix' src='{{item.top_img}}'></image>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <view class='tiao'></view>
+    <view class='all'>全部品牌
+      <span>ALL BRANDS</span>
+    </view>
+    <block wx:for="{{brand_list}}" wx:for-item="z" wx:key>
+      <view class='tiaos'>
+        <view class='word'>{{z.initial}}</view>
+        <block wx:for="{{z.list}}" wx:key wx:for-item="c">
+          <view class='son clearfix' data-id="{{c.id}}" bindtap='jumps'>
+            <view class='s_img float_l'>
+              <image class='img' mode='widthFix' src='{{c.logo}}'></image>
+            </view>
+            <view class='name float_l'>{{c.ename}}</view>
+          </view>
+        </block>
+        <view class='tiao'></view>
+      </view>
+    </block>
+  </scroll-view>
+
+</view>

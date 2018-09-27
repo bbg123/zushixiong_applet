@@ -1,0 +1,357 @@
+<view class="container">
+  <view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">推荐</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">晒图</view>
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">品牌</view>
+  </view>
+  <swiper current="{{currentTab}}" bindchange="change" class='bigs'>
+    <!-- 推荐 -->
+    <swiper-item>
+      <!--中间滚动  -->
+      <scroll-view class='big' scroll-y lower-threshold="100px" style="height: {{clientHeight}}px;">
+        <view class="zsx_home">
+          <!--购买消息轮播  -->
+          <view class='mg'>
+            <block wx:for="{{nick}}" wx:key="{{index}}">
+              <view class='mgs clearfix mgs_id' animation="{{animationData}}">
+                <view class='ui_name clearfix'>
+                  <view class='mg_img float_l'>
+                    <image lazy-load="true" class='img' mode='widthFix' src='{{item.avatar}}'></image>
+                  </view>
+                  <view class='nickname float_l'>{{item.nickname}}</view> {{item.content }}</view>
+              </view>
+            </block>
+          </view>
+          <!-- 首页轮播图 -->
+          <swiper indicator-dots="true" autoplay="true" interval="5000" circular="circular" class="zsx_home_carousel"  wx:if="{{imgUrls.length != 0}}">
+            <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+              <swiper-item style="height: 100%;">
+                <view class="swiper_item" data-img="{{item.image}}" data-uid="{{item.id}}" data-id="{{ item.link.params.id }}" data-keyword="{{ item.link.params.keyword }}"
+                  data-url="{{ item.link.m }}" data-urlone="{{ item.link.c }}" bindtap="navGo">
+                  <image lazy-load="true" src="{{item.image}}" mode="widthFix" class="zsx_home_carousel_slide-image" />
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+
+          <!-- 活动专区 -->
+          <block wx:for="{{cheap_list}}" wx:key="{{index}}" wx:if="{{cheap_list.length != 0}}">
+            <form report-submit="true" bindsubmit="saveFormId">
+              <view class="zsx_home_activity {{item.api_link ? 'zsx_home_activity1' : ''}}">
+                <image class="img" mode="widthFix" src="{{item.image}}"></image>
+                <button class="cheap_btn" formType="submit" data-url="{{ item.link.m }}" data-urlone="{{ item.link.c }}"
+                bindtap="{{item.api_link ? '' : 'navGo'}}" data-api_link="{{item.api_link}}" data-id="{{item.link.params.id}}"></button>
+              </view>
+            </form>
+          </block>
+
+          <!-- 热租表款列表页 -->
+          <view class="zsx_home_hot" wx:if="{{hots.length != 0}}">
+            <!-- 热租表款列表页标题 -->
+            <view class="zsx_home_hot_title">
+              <view class="zsx_home_hot_title_text1">热租表款
+                <text class="zsx_home_hot_title_text1_gray">HOT</text>
+              </view>
+              <view class="zsx_home_hot_title_text2" bindtap="Allhot">全部热租
+                <image src="../img/three.png" class="rightArrow" mode="widthFix"></image>
+              </view>
+            </view>
+            <!-- 热租表款列表页列表信息图片 -->
+            <scroll-view scroll-x="true" class="zsx_home_hot_scroll-view">
+              <view scroll-x="true" class="zsx_home_hot_scroll-view">
+                <block wx:for="{{hots}}" wx:key="{{index}}">
+                  <view class="zsx_home_hot_scroll-view-item" catchtap="hot_goods" data-id="{{ item.goods_id }}">
+                    <view class="zsx_home_hot_scroll-view-item_image">
+                      <image lazy-load="true" mode="widthFix" style="width: 100%" src="{{ item.img }}" />
+                      <block wx:if="{{item.store_count == 0 }}">
+                        <view class="goods_num">待返架</view>
+                      </block>
+                      <block wx:elif="{{item.store_count <= 3}}">
+                        <view class="goods_num">仅剩{{item.store_count}}件</view>
+                      </block>
+                    </view>
+                    <view class="zsx_home_hot_scroll-view-item_text">{{ item.goods_name }}</view>
+                    <view class="zsx_home_hot_scroll-view-item_price">{{ item.rent_price }}</view>
+                    <view class="zsx_home_hot_scroll-view-item_color">{{item.color_sum}}</view>
+                  </view>
+                </block>
+              </view>
+            </scroll-view>
+          </view>
+
+          <!-- 新品尝试列表 -->
+          <view class="zsx_home_new" wx:if="{{news.length != 0}}">
+            <!-- 新品尝试标题 -->
+            <view class="zsx_home_new_title">
+              <view class="zsx_home_new_title_text1">新品尝鲜
+                <text class="zsx_home_new_title_text1_gray">NEW</text>
+              </view>
+              <view class="zsx_home_new_title_text2" bindtap="Allnew">全部新品
+                <image lazy-load="true" src="../img/three.png" class="rightArrow" mode="widthFix"></image>
+              </view>
+            </view>
+            <!-- 新品尝试列表内容 -->
+            <block wx:for="{{ news }}" wx:key="{{index}}">
+              <view class="zsx_home_new_content" catchtap="newsGoods" data-id="{{item.goods_id}}">
+                <view class="zsx_home_new_content_article">
+                  <!-- 内容文字部分 -->
+                  <view class="zsx_home_new_content_article_text">
+                    <view class="zsx_home_new_content_article_text_top">
+                      <!-- 内容标题和头像 -->
+                      <image lazy-load="true" class="zsx_home_new_content_article_text_top_icon" mode="widthFix" src="{{item.user.avatar}}" />
+                      <view class="zsx_home_new_content_article_text_top_title">{{item.user.nickname}}</view>
+                    </view>
+                    <!-- 内容信息 -->
+                    <view class="zsx_home_new_content_article_text_headline">
+                      {{item.goods_features}}
+                    </view>
+                    <view class="zsx_home_new_content_article_text_main">
+                      {{item.goods_remark}}
+                    </view>
+                  </view>
+                  <!-- 内容图片 -->
+                  <view class="zsx_home_new_content_article_boximg_image">
+                    <image lazy-load="true" class="zsx_home_new_content_article_boximg_image" mode="widthFix" src="{{item.img}}" />
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+
+          <!-- 明星达人专区 -->
+          <view class="zsx_home_starts" wx:if="{{starts.length != 0}}">
+            <!-- 明星达人专区头部 -->
+            <view class="zsx_home_starts_title">
+              <view class="zsx_home_starts_title_text1">明星/时尚达人 佩戴风
+                <text class="zsx_home_starts_title_text1_gray">STARTS</text>
+              </view>
+            </view>
+            <!-- 明星达人专区滚动的内容 -->
+            <scroll-view scroll-x="true" class="zsx_home_starts_scroll-view">
+              <view scroll-x="true" class="zsx_home_starts_scroll-view">
+                <block wx:for="{{starts}}" wx:key="{{index}}">
+                  <view class="zsx_home_starts_scroll-view-item" bindtap="startsInfo" data-index="{{index}}">
+                    <image lazy-load="true" class="zsx_home_starts_scroll-view-item_image" mode="widthFix" src="{{item.list[0].img}}" />
+                  </view>
+                </block>
+              </view>
+            </scroll-view>
+          </view>
+
+          <!-- 精选专区 -->
+          <view class="zsx_home_handpick" wx:if="{{topic.length != 0}}">
+            <!-- 精选专区头部 -->
+            <view class="zsx_home_handpick_title">
+              <view class="zsx_home_handpick_title_text1">精选专题
+                <text class="zsx_home_handpick_title_text1_gray">TRENDY TOPYS</text>
+              </view>
+            </view>
+            <!-- 精选专区内容 -->
+            <swiper indicator-dots="true" circular="true" class="zsx_home_handpick_content">
+              <block wx:for="{{topic}}" wx:key="{{index}}">
+                <swiper-item bindtap="handpickInfo" data-id="{{item.id}}">
+                  <image lazy-load="true" src="{{item.img}}" mode="widthFix" width="100%" class="zsx_home_handpick_content_slide-image" />
+                  <view class="zsx_home_handpick_content_title">{{item.title}}</view>
+                  <view class="zsx_home_handpick_content_text">{{item.text}}</view>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+
+          <!-- 成为会员 -->
+          <block wx:for="{{buttonImg}}" wx:key="{{index}}" wx:if="{{buttonImg.length != 0}}">
+            <view class="zsx_home_vip">
+              <image lazy-load="true" class="zsx_home_vip_image" mode="widthFix" src="{{item.image}}" />
+            </view>
+          </block>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!--晒图  -->
+    <swiper-item class="shais">
+      <view class='tops'>
+        <image lazy-load="true" class='img' src='../img/top.png' mode='widthFix' bindtap='back' hidden='{{!topc}}'></image>
+      </view>
+      <view class='shai_top'>
+        <view class='shai {{shai=="0"? "activess" :""}}' data-shai="0" catchtap='huang'>晒单</view>
+        <view class='fa {{shai=="1"? "activess" :""}}' data-shai="1" catchtap='huang'>发现</view>
+      </view>
+      <!--滑动改变位置  -->
+      <view class='add_fa  {{shai=="1"? "" : "none"}}' catchtap='faxian' fixed="true">
+        <image lazy-load="true" class='img' mode='widthFix' src='../img/add_fa.png'></image>
+      </view>
+      <scroll-view scroll-y class='bigs' scroll-with-animation="true" bindscroll="scroll" scroll-top="{{scolltop}}" bindscrolltolower="bottomscroll">
+        <!--晒单列表  -->
+        <view class='big_dan {{shai=="0"? "" : "none"}}'>
+          <block wx:for="{{shai_items}}" wx:key wx:for-item="vv" wx:for-index="index">
+            <view class='small_shai'>
+
+              <block wx:if="{{vv.nickname != ''}}">
+                <view class='top_head clearfix'>
+                  <view class='head float_l'>
+                    <image lazy-load="true" class='img' mode='widthFix' src='{{vv.avatar}}'></image>
+                  </view>
+                  <view class='shai_name float_l'>{{vv.nickname}}</view>
+                </view>
+              </block>
+
+              <block wx:else>
+                <view class='top_head clearfix'>
+                  <view class='head float_l'>
+                    <image lazy-load="true" class='img' mode='widthFix' src='../img/heade.png'></image>
+                  </view>
+                  <view class='shai_name float_l'>匿名用户</view>
+                </view>
+              </block>
+
+
+              <view class='shai_title'>{{vv.content}}</view>
+              <!--横向图片  -->
+              <scroll-view scroll-x>
+                <view class='shai_imgs {{vv.images.length==1? "long1" : (vv.images.length==2? "long2" : (vv.images.length==3? "long3" : (vv.images.length==4? "long4" :(vv.images.length==5? "long5" : ""))))}}'>
+                  <block wx:for="{{vv.images}}" wx:key wx:for-item="cc">
+                    <view class='shai_img' bindtap="tapimg" data-arr="{{vv.images}}" data-src="{{cc.file}}">
+                      <image lazy-load="true" class='img' mode='aspectFill' src='{{cc.file}}'></image>
+                    </view>
+                  </block>
+                </view>
+              </scroll-view>
+              <view class='shai_bottom clearfix '>
+                <button class='share carebtn border-r' open-type="share">
+                  <view class='share_img '>
+                    <image lazy-load="true" class='img' mode='widthFix' src='../img/share.png'></image>
+                  </view>
+                  分享
+                </button>
+                <!--评论点赞  -->
+                <view class='share border-r'>
+                  <view class='share_img' data-id="{{vv.id}}" catchtap='fazan'>
+                    <image class='img' mode='widthFix' src='../img/{{!vv.is_like? "like@2x.png" : "like2@2x.png"}}'></image>
+                  </view>
+                  <span class="float_l">{{vv.like_num}}</span>
+                </view>
+                <view class='share' data-id='{{vv.goods_id}}' catchtap='jump' style="color:{{vv.goods_id ? '' : '#ccc'}};">
+                  <view class='share_img'>
+                    <image lazy-load="true" class='img' mode='widthFix' src='../img/shop.png'></image>
+                  </view>
+                  商品
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+        <!--发现列表  -->
+        <view class="bigss">
+
+          <view class='masonry {{shai=="1"? "" : "none"}}'>
+            <block wx:for="{{shai_items}}" wx:key="{{index}}" wx:for-item="vv">
+              <view class='item' wx:if="{{index % 2 == 0}}" data-id="{{vv.id}}" catchtap='jump_x'>
+                <view class='fa_imgs'>
+                  <image lazy-load="true" class='img' mode='widthFix' src='{{vv.images[0].file}}'></image>
+                </view>
+                <view class='shai_title'>{{vv.content}}</view>
+                <view class='top_head clearfix'>
+                  <view class='head float_l'>
+                    <image lazy-load="true" class='img' mode='widthFix' src='{{vv.avatar}}'></image>
+                  </view>
+                  <view class='shai_name float_l'>{{vv.nickname}}</view>
+                  <!--发现点赞  -->
+                  <view class='zang float_r' data-id='{{vv.id}}' catchtap='fazan'>
+                    <view class='share_imgs '>
+                      <image class='img' mode='widthFix' src='../img/{{!vv.is_like? "like@2x.png" : "like2@2x.png"}}'></image>
+                    </view>
+                    <span>{{vv.like_num}}</span>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+
+          <view class='masonry {{shai=="1"? "" : "none"}}'>
+            <block wx:for="{{shai_items}}" wx:key="{{index}}" wx:for-item="vv">
+              <view class='item' wx:if="{{index % 2 != 0}}" data-id="{{vv.id}}" catchtap='jump_x'>
+                <view class='fa_imgs'>
+                  <image lazy-load="true" class='img' mode='widthFix' src='{{vv.images[0].file}}'></image>
+                </view>
+                <view class='shai_title'>{{vv.content}}</view>
+                <view class='top_head clearfix'>
+                  <view class='head float_l'>
+                    <image lazy-load="true" class='img' mode='widthFix' src='{{vv.avatar}}'></image>
+                  </view>
+                  <view class='shai_name float_l'>{{vv.nickname}}</view>
+                  <!--发现点赞  -->
+                  <view class='zang float_r' data-id='{{vv.id}}' catchtap='fazan'>
+                    <view class='share_imgs '>
+                      <image class='img' mode='widthFix' src='../img/{{!vv.is_like? "like@2x.png" : "like2@2x.png"}}'></image>
+                    </view>
+                    <span>{{vv.like_num}}</span>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+    <!--品牌  -->
+    <swiper-item>
+      <scroll-view scroll-y class='big_scroll' style="height: {{clientHeight}}px;">
+        <view class='tiao'></view>
+        <view class='new'>
+          <view class='top_title'>新牌入驻
+            <span>LATEST BRANDS</span>
+          </view>
+          <swiper class='headers' indicator-dots="true" circular="true" indicator-color="#c8c8c8">
+            <block wx:for="{{new_list}}" wx:key>
+              <swiper-item bindtap="jumps" data-id="{{item.id}}" bindtap='brand_jumps'>
+                <image lazy-load="true" src="{{item.top_img}}" class="img" mode='widthFix' />
+                <view class='brand'>{{item.ename}}</view>
+                <view class='titles'>{{item.content}}</view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <view class='tiao'></view>
+        <view class='hot_title'>人气品牌
+          <span>HOT BRANDS</span>
+        </view>
+        <scroll-view scroll-x style="background: #fff;">
+          <view class='bigz'>
+            <block wx:for="{{hot_list}}" wx:key>
+              <view>
+                <view class='imgs' data-id="{{item.id}}" bindtap='brand_jumps'>
+                  <image class='img' mode='widthFix' src='{{item.top_img}}'></image>
+                </view>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+        <view class='tiao'></view>
+        <view class='all'>全部品牌
+          <span>ALL BRANDS</span>
+        </view>
+        <block wx:for="{{brand_list}}" wx:for-item="z" wx:key>
+          <view class='tiaos'>
+            <view class='word'>{{z.initial}}</view>
+            <block wx:for="{{z.list}}" wx:key wx:for-item="c">
+              <view class='son clearfix' data-id="{{c.id}}" bindtap='brand_jumps'>
+                <view class='s_img float_l'>
+                  <image lazy-load="true" class='img' mode='widthFix' src='{{c.logo}}' style="border-radius: 50%;border: 1px solid #e8e8e8;"></image>
+                </view>
+                <view class='names float_l'>{{c.ename}}</view>
+              </view>
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+  <view class="vip_tips {{ vip_tips_show? 'vip_tips_show' : ''}}}">
+    <view class="vip_tips_close" catchtap="hideVipTips"></view>
+    <image mode="widthFix" class="img" src="../img/vip_tips_img.png"></image>
+    <button class="vip_tips_btn" open-type="share"></button>
+  </view>
+  <view class="mask_layer" wx:if="{{vip_tips_show}}" catchtap="hideVipTips"></view>
+</view>

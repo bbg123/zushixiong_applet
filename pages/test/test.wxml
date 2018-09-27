@@ -1,0 +1,17 @@
+<view class="container">
+  <web-view wx:if="{{type}}" bindmessage="getimg" src="https://www.zushixiong.com/{{link}}/?token={{token}}&sj={{num}}"></web-view>
+  <view class="accredit" wx:if="{{frame}}">
+    <view class="accredit_title">
+      <view class="accredit_title_img">
+        <image class="img" mode="widthFix" src="../img/sq_logo.png"></image>
+      </view>
+      <view class="accredit_title_text">租师兄</view>
+    </view>
+    <view class="accredit_content">
+      <view class="accredit_content_text1">网页由该公众号开发,请确认授权以下信息</view>
+      <view class="accredit_content_text2">. 获得你的公开信息 (昵称,头像等) </view>
+      <button class="yes" type="primary" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="GetUserInfo">确认授权</button>
+      <view class="no btn" bindtap="goback">取消授权</view>
+    </view>
+  </view>
+</view>

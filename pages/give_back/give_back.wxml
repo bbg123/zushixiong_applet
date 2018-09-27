@@ -1,0 +1,17 @@
+<view class="container">
+  <view class='big'>
+    <view class='one'>请把表寄往</view>
+    <view class='two'>广东省广州市黄浦区文冲敬业路97号淘汇商业园二楼</view>
+    <view class='one'>快递公司</view>
+    <input type='text' class='three' bindinput="one"></input>
+    <view class='one'>快递单号
+      <view class="float_r sweepcode" bindtap="sweepcode">扫码获取单号</view>
+    </view>
+    <input type='text' class='three' bindinput="two" value="{{orders}}"></input>
+    <view class='bottom' bindtap='back'>申请</view>
+    <view class='bottoms'>
+      <view class='top'>当客服查询到快递已经生成后，结束收费；</view>
+      <view class='tops'>当客服收到快递并验收后，将会退回押金。</view>
+    </view>
+  </view>
+</view>

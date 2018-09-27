@@ -1,0 +1,112 @@
+<view class="container">
+
+  <scroll-view scroll-y class='big_scroll'>
+    <view class='tiao'></view>
+    <view class='adree'>
+
+      <view class='imgq'>
+        <image class='img' mode='widthFix' src='../img/right_san.png'></image>
+      </view>
+      <view class='{{trer? "have" :"none"}}' bindtap='add'>
+        <view class="toptxt">
+          <view class='names text_hidden'>{{address.consignee}}</view>
+          <view class="phone">{{address.mobile}}</view>
+        </view>
+        <view class='city text_hidden2'>{{address.region}} {{address.address}}</view>
+      </view>
+      <view class='{{trer? "none" :"have"}}' bindtap='add'>
+        <view class='jia'>+添加地址</view>
+      </view>
+    </view>
+    <view class='tiao'></view>
+    <view class='how clearfix'>
+      <view class='float_l'>配送方式</view>
+      <view class='float_r'>包邮</view>
+    </view>
+    <view class='tiao'></view>
+    <!--手表  -->
+    <view class='shopping'>
+      <block wx:for="{{buy_list}}" wx:key>
+        <view class='small clearfix'>
+          <view class='small_l float_l'>
+            <view class='small_img'>
+              <image class='img' mode='widthFix' src='{{item.goods_img}}'></image>
+            </view>
+          </view>
+          <view class='small_r float_l'>
+            <view class='name text_hidden2'>{{item.goods_name}}{{item.goods_name}}</view>
+            <view class='color'>颜色: {{item.goods_color}}
+              <view class="float_r" style="font-size: 16px;">x{{item.goods_num}}</view>
+            </view>
+            <block wx:if="{{type == 1}}">
+              <view class='money'>￥{{item.rent_price}}元/{{item.rent_day}}天</view>
+            </block>
+            <block wx:else>
+              <view class='money'>￥{{item.goods_price}}</view>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <view class="message">
+      <view class="message_title message_line" style="color: #179B16;">钱包金额
+        <view class="float_r">￥{{mymoney}}</view>
+      </view>
+
+      <!-- 判断租的还是买的 -->
+      <block wx:if="{{type == 1}}">
+        <view class="message_rent message_line">租金
+          <view class="float_r">￥{{rent_price}}</view>
+        </view>
+        <view class="message_pledge message_line">押金
+          <view class="float_r">￥{{give_pay}}</view>
+        </view>
+      </block>
+
+      <view class="message_freight message_line">邮费
+        <view class="float_r">￥{{shipping_price}}</view>
+      </view>
+      <view class="message_all message_line">应付总价
+        <block wx:if="{{type == 1}}">
+          <view class="float_r">￥{{give_pay + rent_price + shipping_price}}</view>
+        </block>
+        <block wx:else>
+          <view class="float_r">￥{{give_pay + shipping_price}}</view>
+        </block>
+      </view>
+
+      <picker class=" message_line" bindchange="couponPickerChange" value="{{couponIndex}}" range="{{couponList}}" range-key="name">
+        <view class="picker">
+          优惠劵
+          <view class="float_r">{{couponList[couponIndex].name}}</view>
+        </view>
+      </picker>
+
+      <view class="message_payment message_line">
+        <view class="float_l">
+          实付总价
+          <text style="font-size: 12px;color: #ccc;">(实付 = 钱包 - 应付)</text>
+        </view>
+        <block wx:if="{{type == 1}}">
+          <view class="float_r">￥{{give_pay + rent_price + shipping_price - money - mymoney
+            < 0 ? 0 : give_pay + rent_price + shipping_price -
+              money - mymoney}}</view>
+        </block>
+        <block wx:else>
+          <view class="float_r">￥{{rent_price + shipping_price - money}}</view>
+        </block>
+        </view>
+
+        <view class="message_payment message_line">
+        </view>
+
+      </view>
+  </scroll-view>
+
+  <view class="fa_ti">
+    <button type="primary" class='ti' bindtap='go_give'>微信支付</button>
+  </view>
+
+
+  </view>

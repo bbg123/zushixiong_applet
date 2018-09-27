@@ -1,0 +1,19 @@
+<view class="container">
+  <view class='tiao'></view>
+  <view class='big'>
+    <textarea placeholder='今天发现了什么穿搭小心机？分享给大家吧~(10~200字)' adjust-position="true" bindinput='text'></textarea>
+  </view>
+  <view class='big_img'>
+    <view class='small_img'>
+      <block wx:for="{{img_item}}" wx:key>
+        <view class='imgs' hidden='{{!img_item}}'>
+          <image class='img' mode='widthFix' src='{{item}}'></image>
+        </view>
+      </block>
+      <view class='sds' catchtap='sds'>
+        <image class='img' mode='aspectFill' src='../img/pohot.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='bottom' catchtap='send'>发布</view>
+</view>

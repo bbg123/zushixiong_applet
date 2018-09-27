@@ -1,0 +1,110 @@
+@import"../../template/orderlist/orderlist.wxss";
+.bigs {
+  background: #f8f8f8;
+}
+.small {
+  padding: 20rpx 40rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.left_img {
+  width: 34%;
+  border: 1px solid #e5e5e5;
+}
+
+.rigth_title {
+  width: 60%;
+}
+
+.ename {
+  font-size: 19px;
+  font-weight: bold;
+  color: #999;
+}
+/*订单编号  */
+.mun{
+  font-size: 30rpx;
+  color: #666;
+  margin-bottom: 17rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.name {
+  font-size: 16px;
+  margin-bottom: 20rpx;
+}
+.color{
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+.zu_mone{
+  color: #f43e33;
+  font-size: 14px;
+}
+.zu_mone span{
+  color: #666;
+}
+.ya_mone{
+  color: #666666;
+  font-size: 14px;
+}
+.buy{
+  padding: 30rpx 46rpx;
+  border-top: 1px solid #f4f4f4;
+}
+.back{
+  border: 1px solid #666666;
+  font-size: 14px;
+  padding: 10rpx;
+  border-radius: 20px;
+  margin-right: 20rpx;
+}
+.none{
+  display: none;
+}
+@media screen and (max-width:320px){
+  .color{
+    font-size: 12px;
+  }
+}
+.big_small{
+  padding-bottom: 30rpx;
+}
+.buya{
+  font-size: 16px;
+  font-weight: bold;
+}
+.buya span{
+  font-weight: 100;
+  color: #cccccc;
+}
+.go_buy{
+  color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 10rpx 20rpx;
+}
+.go_buys{
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 10rpx 20rpx;
+}
+.tou{
+  background: #fff;
+}
+.tou .float_l{
+  width: 50%;
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  padding-bottom: 25rpx;
+}
+.hri_active{
+  color: #70bb29 !important;
+  border-bottom: 2px solid #70bb29;
+}

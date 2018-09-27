@@ -1,0 +1,19 @@
+<import src="../../template/orderlist/orderlist.wxml" />
+<view class="container">
+  <view class='tiao'></view>
+  <block wx:for="{{items}}" wx:key wx:for-item="a">
+    <view class='big'>
+      <block wx:for="{{a.list}}" wx:key  wx:for-item="p">
+        <view class='small clearfix'>
+          <view class='order'>订单编号:{{p.order_sn}}</view>
+          <template is="orderlist" data="{{p}}"></template>
+          <view data-type="{{p.pledge_status}}" data-order="{{p.order_sn}}" data-id="{{p.goods_id}}" bindtap='touch' class='{{p.pledge_status==0?"a":(p.pledge_status==1?"b a":(p.pledge_status==2?"c a":""))}}'>{{p.pledge_status==0?"申请退押金":(p.pledge_status==1?"退款中":(p.pledge_status==2?"退款成功":""))}}</view>
+        </view>
+      </block>
+    </view>
+  </block>
+  <block wx:if="{{items.length == 0}}">
+    <import src="../../template/nodata/nodata.wxml" />
+    <template is="nodata"></template>
+  </block>
+</view>

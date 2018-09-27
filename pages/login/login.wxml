@@ -1,0 +1,14 @@
+<view class="container">
+  <view class='top'>SIGN IN</view>
+  <view class='tops'>手机登录</view>
+
+  <view class='chent'>
+    <view class='phone'>你的手机号码</view>
+    <input class='number' type='number' placeholder='点击输入手机号码' maxlength="11" bindinput="phone"></input>
+    <view class='phone'>接收到的验证码</view>
+    <input class='number' type='number' placeholder='点击输入验证码' bindinput="ma"></input>
+    <view class='tong'><label bindtap='checkbox'><checkbox class='checkbox' ></checkbox>我已阅读并同意</label>  <span bindtap="yi">《租师兄的服务与使用协议》</span></view>
+    <view class='send {{sends? "actived" : ""}}' catchtap='{{sends? "" : "send"}}'>{{send}}</view>
+  </view> 
+      <view class='onlog {{touch? "" :"active"}}' bindtap='{{touch? "active" :""}}'>登录</view>
+</view>

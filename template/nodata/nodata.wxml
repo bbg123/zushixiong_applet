@@ -1,0 +1,8 @@
+<template name="nodata">
+  <view class="nodata">
+    <view class="nodata_img" style="width: 100px;">
+      <image class="img" mode="widthFix" src="../../pages/img/nodata@2x.png"></image>
+    </view>
+    <view class="nodata_text">没有任何数据</view>
+  </view>
+</template>

@@ -1,0 +1,122 @@
+
+.top {
+  box-shadow: 0 0 5px #c8c8c8;
+  line-height: 100rpx;
+  font-size: 16px;
+  background: #fff;
+
+}
+
+.ul {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.shou {
+  text-align: center;
+  width: 50%;
+}
+
+.fan {
+  text-align: center;
+  width: 50%;
+}
+
+.active {
+  color: #ff825c;
+  border-bottom: 3px solid #ff825c;
+}
+.see{
+  background: #fff;
+}
+.see_top{
+  background: #f8f8f8;
+  padding: 10rpx 40rpx;
+  margin-top: 5rpx;
+}
+.left_img{
+  width: 34%;
+  vertical-align: middle;
+  line-height: 90rpx;
+}
+.img{
+  vertical-align: middle;
+}
+.left_title{
+  font-size: 14px;
+  line-height: 90rpx;
+  margin-left: 40rpx;
+}
+.left_titles{
+  font-size: 14px;
+  line-height: 90rpx;
+  margin-left: 140rpx;
+  color: #ff825c;
+}
+.msg{
+  padding: 20rpx 40rpx;
+  font-size: 14px;
+}
+.num{
+  margin-bottom: 10rpx;
+}
+.tiao{
+  height: 20rpx;
+  background: #f8f8f8;
+}
+.where{
+  padding: 0 70rpx;
+  margin-top: 30rpx;
+}
+.zi{
+  font-size: 14px;
+  border-bottom: 1px solid #f4f4f4;
+  color: #999;
+  position: relative;
+}
+.zi:nth-child(1){
+  color: #000;
+}
+.zi::after{
+  content: "";
+  position: absolute;
+  width: 15rpx;
+  height: 15rpx;
+  background: #cdcdcd;
+  border-radius: 50%;
+  top: 40%;
+  left: -5%;
+}
+.zi:nth-child(1)::after{
+  background: #fe825c;
+  border: 1px solid #fe825c;
+}
+.zi::before{
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 120%;
+  background: #cdcdcd;
+  top: 40%;
+  left: -4%;
+}
+.zi:nth-last-child(1)::before{
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 100%;
+  background: #cdcdcd;
+  top: 40%;
+  left: -4%;
+}
+.name{
+  line-height: 50rpx;
+  margin-bottom: 20rpx;
+  padding-top:20rpx; 
+}
+.time{
+  padding-bottom: 20rpx;
+}
+.none{
+  display: none;
+}

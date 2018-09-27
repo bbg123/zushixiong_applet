@@ -1,0 +1,3 @@
+<view class="container">
+  <web-view bindmessage="getimg" src="https://mp.weixin.qq.com/s/ONhg0W7CZZXbfM9nebhIUw"></web-view>
+</view>

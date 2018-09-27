@@ -1,0 +1,68 @@
+.top{
+  font-size: 24px;
+  font-weight: bold;
+  padding: 40rpx;
+}
+.tops{
+  font-size: 16px;
+  padding-left: 40rpx;
+  padding-bottom: 40rpx;
+  font-weight: bold;
+}
+.chent{
+  padding: 40rpx;
+}
+.phone{
+  font-size: 16px;
+}
+.number{
+  border-bottom: 1px solid #cbcbcb;
+  font-size: 14px;
+  padding: 10rpx 0;
+  margin-bottom: 10rpx;
+}
+.tong{
+  font-size: 12px;
+}
+.checkbox{
+  margin-right: 10rpx;
+}
+.tong span{
+  color: red;
+}
+.onlog{
+  background: red;
+  color: #fff;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 0 40rpx;
+  transition: all .5;
+}
+.active{
+  opacity: .2;
+}
+.send{
+  right: 40rpx;
+  top: 410rpx;
+  position: absolute;
+  width: 250rpx;
+  line-height: 70rpx;
+  border-radius: 10px;
+  font-size: 14px;
+  border: 1px solid #000;
+  text-align: center;
+  z-index: 66;
+}
+@media screen and (min-width:414px){
+  .send{
+    top: 390rpx !important;
+  }
+}
+@media screen and (max-width:320px){
+  .send{
+    top: 430rpx !important;
+  }
+}
+.actived{
+  opacity: .2;
+}

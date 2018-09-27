@@ -1,0 +1,132 @@
+@import "../../template/goodslist/goodslist.wxss";
+.top{
+  position: relative;
+}
+.two{
+  position: absolute;
+  top: 230rpx;
+  left: 150rpx;
+  color: #fff;
+  width: 60%;
+  line-height: 60rpx;
+}
+.xin1{
+  width: 48%;
+  font-size: 14px;
+  text-align: center;
+  border-right: 1px solid #a6adb5;
+}
+.imgs{
+  width: 40rpx;
+  margin-left: 20rpx;
+}
+.fans{
+  width: 48%;
+  font-size: 14px;
+  text-align: center;
+}
+.title{
+  padding: 40rpx;
+  padding-bottom: 60rpx;
+  position: relative;
+  background: #fff;
+}
+.cname{
+    margin-bottom: 30rpx;
+}
+.test {
+  margin-top: 0;
+  margin-bottom: 15rpx;
+}
+.zi{
+  font-size: 12px;
+  line-height: 50rpx;
+   height: 150rpx; 
+  overflow: hidden;
+  transition: all .5s;
+}
+.zis{
+  font-size: 12px;
+  line-height: 50rpx;
+  overflow: hidden;
+}
+.bottom_img{
+  position: absolute;
+  width: 60rpx;
+  bottom: 0;
+  right: 50rpx;
+}
+.active{
+  transform: rotate(180deg)
+}
+.chioss{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  padding: 20rpx 0;
+}
+.choess{
+  padding: 0 20rpx;
+  text-align: center;
+}
+.chioss .choess:first-child {
+  border-right: 1px solid #ccc;
+}
+.bigs{
+  background: #f8f8f8;
+  padding: 20rpx 0;
+  display: flex;
+  flex-wrap:wrap;
+}
+.brand{
+  font-size: 16px;
+  margin-bottom: 20rpx;
+}
+.bottom{
+  font-size: 14px;
+}
+.actives{
+  color: #f33e37;
+}
+.loading {
+  padding: 10rpx;
+  text-align: center;
+  z-index: 999;
+}
+
+.loading:before {
+  display: inline-block;
+  margin-right: 5rpx;
+  vertical-align: middle;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-size: contain;
+  animation: rotate 1s linear infinite;
+}
+
+.loading.complete:before {
+  display: none;
+}
+.tops_img{
+  position: absolute;
+  width: 200rpx;
+  top: -80rpx;
+  left: 40rpx;
+  box-shadow: 0 0 5px #C8C8C8;
+}
+.tops{
+  position: fixed;
+  right: 50rpx;
+  top: 1000rpx;
+  width: 44rpx;
+  height: 44rpx;
+  z-index: 66;
+}
+.img_s {
+  width: 100%;
+  margin: 0 auto;
+  float: left;
+}

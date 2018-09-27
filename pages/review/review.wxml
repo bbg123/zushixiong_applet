@@ -1,0 +1,71 @@
+<view class="container">
+
+  <view class="review_top">
+    <!-- 好评 -->
+    <view class="review_top_reputably">
+      <view class="review_top_reputably_num">{{praise_rate}}%</view>
+      <view class="review_top_reputably_txt">好评</view>
+    </view>
+
+    <!-- 按钮 -->
+    <view class="review_top_btn">
+      <view class="review_top_btn_all {{actived === '0' ? 'active':''}}" data-num="0" bindtap="clickbtn">全部({{total}})</view>
+      <view class="review_top_btn_img {{actived === '1' ? 'active':''}}" data-num="1" bindtap="clickbtn">有图({{img_count}})</view>
+    </view>
+
+  </view>
+
+  <block wx:for="{{ping_item}}" wx:key="{{index}}">
+    <view class="review_main">
+
+      <view class="review_main_title">
+        <block wx:if="{{item.nickname}}">
+          <view class="review_main_title_img">
+            <image mode="widthFix" style="width: 100%; border-radius: 50%;" src="{{item.avatar}}"></image>
+          </view>
+          <view class="review_main_title_name">{{item.nickname}}</view>
+        </block>
+        <block wx:else>
+          <view class="review_main_title_img">
+            <image mode="widthFix" style="width: 100%; border-radius: 50%;" src="../img/heade.png"></image>
+          </view>
+          <view class="review_main_title_name">匿名用户</view>
+        </block>
+      </view>
+
+      <view class="review_main_content">
+        <view class="review_main_content_txt">{{item.content}}</view>
+
+        <scroll-view scroll-x="true">
+          <view scroll-x="true" style="display: flex;">
+            <block wx:for="{{item.images}}" wx:key="{{key}}" wx:for-item="items">
+              <view>
+                <view class="review_main_content_img" data-arr="{{item.images}}" data-src="{{items.file}}" bindtap="bigimg">
+                  <image mode="aspectFill" style="width:100%;" src="{{items.file}}"></image>
+                </view>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+
+      </view>
+
+      <view class="review_main_bottom">
+        <button class=" review_btn button-hover" open-type="share">
+          <view class="share_img">
+            <image class="img" mode="widthFix" src="../img/share.png" style="height: 12.04px;"></image>
+          </view>
+          <view class="top_btn_fun_text">分享</view>
+        </button>
+        <view class='review_main_bottomlike' catchtap='ping_like' data-id='{{item.id}}'>
+          <view style="width: 40rpx;">
+            <image style="width: 40rpx;" mode='widthFix' src='../img/{{item.is_like == true? "like2@2x.png" : "like@2x.png"}}'></image>
+          </view>
+          <view class="review_main_likenum">{{item.like_num}}</view>
+        </view>
+      </view>
+
+    </view>
+  </block>
+
+</view>

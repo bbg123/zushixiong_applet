@@ -1,0 +1,27 @@
+<view class="footprint">
+  <block wx:for="{{dataitem}}" wx:key="{{index}}">
+    <view class="footprint_main">
+      <view class="footprint_main_title">{{item.track_time}}</view>
+      <block wx:for="{{item.goods}}" wx:key="{{index}}">
+        <view class="footprint_main_content" bindtap="gocho" data-id="{{item.goods_id}}">
+          <!-- 图片 -->
+          <view class="footprint_main_content_img">
+            <image style="width: 100%;" mode="widthFix" src="{{item.goods_img}}"></image>
+          </view>
+          <!-- 文字介绍 -->
+          <view class="footprint_main_content_introduce">
+            <view class="footprint_main_content_introduce_brand">{{item.brand_name}}</view>
+            <view class="footprint_main_content_introduce_name">{{item.goods_name}}</view>
+            <view class="footprint_main_content_introduce_advertising">{{item.goods_features}}</view>
+            <view class="footprint_main_content_introduce_price">{{item.rent_price_day}}</view>
+          </view>
+
+        </view>
+      </block>
+    </view>
+  </block>
+  <block wx:if="{{dataitem.length == 0}}">
+    <import src="../../template/nodata/nodata.wxml" />
+    <template is="nodata"></template>
+  </block>
+</view>

@@ -1,0 +1,110 @@
+.wallet_top {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  padding: 60rpx 0 13rpx;
+}
+.wallet_top_txt {
+  font-size: 16px;
+}
+.wallet_top_num {
+  display: flex;
+  font-size: 78rpx;
+  font-weight: 600;
+  margin: 20rpx 0;
+}
+.wallet_top_btn{
+  width: 85%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  margin-bottom: 14rpx;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+.tiao {
+  background: #f8f8f8;
+  height: 20rpx;
+}
+
+.wallet_main {
+
+}
+.wallet_main_record {
+  background: #fff;
+  height: 126rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 0 46rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wallet_main_record_left {
+  display: flex;
+  flex-direction:column;
+}
+.wallet_main_record_left_top {
+  font-size: 14px;
+}
+.wallet_main_record_left_bottom {
+  font-size: 12px;
+  color: #989898;
+}
+
+.mask_layer {
+  background: rgba(0,0,0,.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.input_frame {
+  width: 100%;
+  height: 374rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  padding: 86rpx 72rpx 0;
+  box-sizing: border-box;
+}
+
+.input_frame_X {
+  width: 30rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 30rpx;
+}
+
+.input_frame_btn {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0;
+  background: #70bb29;
+  color: #fff;
+}
+
+.input_frame_main_txt {
+  font-size: 14px;
+  margin-bottom: 20rpx;
+}
+.input_frame_main_input {
+  display: flex;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  align-items: center;
+}
+.input_frame_main_tip {
+  font-size: 12px;
+  color: #b8b8b8;
+  margin-top: 10rpx;
+}

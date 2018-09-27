@@ -1,0 +1,110 @@
+<view class="container">
+  <view class='header clearfix'>
+    <view class='float_l {{index==0?"active":"head"}}' data-choss="0" bindtap='wei'>未使用</view>
+    <view class='float_l {{index==1?"active":"head"}}' data-choss="1" bindtap='wei'>已使用</view>
+    <view class='float_l {{index==2?"active":"head"}}' data-choss="2" bindtap='wei'>已过期</view>
+  </view>
+  <swiper current="{{index}}" bindchange="swipercurrent" style="" class="swiper">
+    <!-- 未使用 -->
+    <swiper-item>
+      <scroll-view scroll-y class='big_scroll'>
+        <view class='big '>
+          <block wx:if="{{list.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+          <block wx:for="{{list}}" wx:key wx:for-index="z">
+            <view class='small' data-title="{{item.name}}" data-money="{{item.money}}" data-id="{{item.id}}">
+              <view class='left'>
+                <view class="title_icon">
+                  <image mode="widthFix" class="img" src="{{item.order_type == '购买' ? '../img/buy_icon.png' : '../img/rent_icon.png' }}"></image>
+                </view>
+                <view class='money'>￥
+                  <span>{{item.money}}</span>
+                </view>
+                <view class='people'>{{item.condition_msg}}</view>
+              </view>
+              <view class='right'>
+
+                <view class='title'>{{item.type}}</view>
+                <view class="title2">{{item.name}}</view>
+                <view class='time'>{{item.use_time}}</view>
+                <view wx:if="{{item.is_will_expire}}" class="is_due">
+                  <image class="img" mode="widthFix" src="../img/fast_overdue.png" alt="" />
+                </view>
+                <view class="getroll_list_txt_pos" style="top: -15rpx;"></view>
+                <view class="getroll_list_txt_pos" style="bottom: -15rpx;"></view>
+                <view class="getroll_list_txt_btn"  bindtap='go_index'>立即使用</view>
+              </view>
+            </view>
+          </block>
+        </view>
+
+      </scroll-view>
+    </swiper-item>
+
+    <!-- 已使用 -->
+    <swiper-item>
+      <scroll-view scroll-y class='big_scroll'>
+        <view class='big '>
+          <block wx:if="{{is_use.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+          <block wx:for="{{is_use}}" wx:key wx:for-index="z">
+            <view class='small actives clearfix' data-type="{{item.is_use}}" data-title="{{item.name}}" data-money="{{item.money}}" data-id="{{item.id}}">
+              <view class='float_l left actives'>
+                <view class='money'>￥
+                  <span>{{item.money}}</span>
+                </view>
+                <view class='people'>{{item.condition_msg}}</view>
+              </view>
+              <view class='right float_l'>
+                <view class='title'>{{item.type}}</view>
+                <view class="title2">{{item.name}}</view>
+                <view class='time'>{{item.use_time}}</view>
+                <view class="getroll_list_txt_pos" style="top: -20rpx;"></view>
+                <view class="getroll_list_txt_pos" style="bottom: -20rpx;"></view>
+              </view>
+            </view>
+          </block>
+        </view>
+
+      </scroll-view>
+    </swiper-item>
+
+    <!-- 已过期 -->
+    <swiper-item>
+      <scroll-view scroll-y class='big_scroll'>
+        <view class='big '>
+          <block wx:if="{{use_lose_list.length == 0}}">
+            <import src="../../template/nodata/nodata.wxml" />
+            <template is="nodata"></template>
+          </block>
+          <block wx:for="{{use_lose_list}}" wx:key wx:for-index="z">
+            <view class='small actives clearfix' data-type="{{item.is_use}}" data-title="{{item.name}}" data-money="{{item.money}}" data-id="{{item.id}}">
+              <view class='float_l left actives'>
+                <view class='money'>￥
+                  <span>{{item.money}}</span>
+                </view>
+                <view class='people'>{{item.condition_msg}}</view>
+              </view>
+              <view class='right float_l'>
+                <view class='title'>{{item.type}}</view>
+                <view class="title2">{{item.name}}</view>
+                <view class='time'>{{item.use_time}}</view>
+                <view class="is_due">
+                  <image class="img" mode="widthFix" src="../img/overdue.png" alt="" />
+                </view>
+                <view class="getroll_list_txt_pos" style="top: -20rpx;"></view>
+                <view class="getroll_list_txt_pos" style="bottom: -20rpx;"></view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+  </swiper>
+
+</view>

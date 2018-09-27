@@ -1,0 +1,134 @@
+.review_top {
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.review_top_reputably {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40rpx 0;
+}
+
+.review_top_reputably_num {
+  font-size: 24px;
+}
+
+.review_top_reputably_txt {
+  font-size: 14px;
+  margin-left: 3rpx;
+}
+
+.review_top_btn {
+  display: flex;
+  padding-bottom: 40rpx;
+}
+
+.review_top_btn_all {
+  padding: 10rpx 20rpx;
+  color: #aaa;
+  border: 1rpx solid #aaa;
+  font-size: 12px;
+  border-radius: 30rpx;
+  margin-left: 40rpx;
+}
+
+.review_top_btn_img {
+  padding: 10rpx 20rpx;
+  color: #aaa;
+  border: 1rpx solid #aaa;
+  font-size: 12px;
+  border-radius: 30rpx;
+  margin-left: 40rpx;
+}
+
+.review_main {
+  background: #fff;
+  padding: 30rpx 0 30rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.review_main_title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.review_main_title_img {
+  width: 80rpx;
+  margin-right: 20rpx;
+}
+
+.review_main_title_name {
+  font-size: 14px;
+}
+
+.review_main_content_txt {
+  padding-right: 20rpx;
+  font-size: 12px;
+  margin-bottom: 20rpx;
+}
+
+.review_main_content_img {
+  width: 300rpx;
+  height: 300rpx;
+  margin-right: 10rpx;
+}
+
+.review_main_bottom {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.review_btn {
+  width: 50%;
+  background: #fff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+}
+
+.review_btn::after{
+  border: none;
+}
+
+.review_main_bottomlike {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.review_main_likenum {
+  color: #666;
+  margin-left: 5rpx;
+  font-size: 14px;
+}
+
+.share_img {
+  width: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top_btn_fun_text {
+  font-size: 13px;
+}
+
+.button-hover {
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #DEDEDE;
+}
+
+.share_img {
+  margin-right: 10rpx;
+}
+
+.active {
+  color: #fff;
+  background: red;
+  border: none;
+}

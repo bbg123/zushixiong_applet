@@ -1,0 +1,67 @@
+<import src="../../template/orderlist/orderlist.wxml" />
+<view class="container">
+  <view class='top_img'>
+    <image class='img' mode='widthFix' src='{{is_shipping? "../img/send.png" : "../img/pay.png"}}'></image>
+    <view class='title'>{{is_shipping? "卖家已发货" : "买家已付款"}}</view>
+  </view>
+  <view class='ress'>
+    <view class='shou text_hidden2'>{{shipping.address}}</view>
+    <view class="bottommain">收件人：
+      <view class='people text_hidden'>{{shipping.consignee}}</view>
+      <view>{{shipping.mobile}}</view>
+    </view>
+  </view>
+  <!--手表  -->
+  <view class='watch'>
+    <block wx:for="{{goods_list}}" wx:key wx:for-item="p">
+      <view class='small clearfix'>
+        <template is="orderlist" data="{{p}}"></template>
+      </view>
+    </block>
+  </view>
+  <!--结算  -->
+  <view class='over_money'>
+    <!--租赁  -->
+    <view class='zus_money {{order_type==1? "block":"none"}}'>
+      <view class='zus'>租金
+        <span class="float_r">￥{{price.goods_total}}</span>
+      </view>
+      <view class='zus'>押金
+        <span class="float_r">￥{{price.deposit_total}}</span>
+      </view>
+      <view class='zus'>邮费
+        <span class="float_r">￥{{price.shipping_price}}</span>
+      </view>
+      <view class='zus'>优惠
+        <span class="float_r">{{price.coupon != 0 ? "-" : "" }}￥{{price.coupon}}</span>
+      </view>
+    </view>
+    <!--购买  -->
+    <view class='zus_money {{order_type==2? "block":"none"}}'>
+      <view class='zus'>邮费
+        <span class="float_r">￥{{price.shipping_price}}</span>
+      </view>
+    </view>
+    <view class='all'>实付总额
+      <span>￥{{price.total}}</span>
+    </view>
+    <view class='mai'>
+      <view class='left_img'>
+        <image class='img' mode='widthFix' src='../img/seller.png'></image>
+      </view>
+      <button open-type='contact'>联系卖家</button>
+    </view>
+
+  </view>
+  <view class='time'>
+    <view class='orders'>订单编号: {{order_time.order_sn}}</view>
+    <view class='orders'>付款时间: {{order_time.pay_time}}</view>
+    <view class='orders'>发货时间: {{order_time.shipping_time}}</view>
+  </view>
+  <view class='bottomc clearfix'>
+    <view class='bottoms float_r'>
+      <view class='que float_r' catchtap='que'>确认收货</view>
+      <view class='see float_r' catchtap='{{order_time.shipping_time==0? "no_see":"sees"}}'>查看物流</view>
+    </view>
+  </view>
+</view>

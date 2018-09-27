@@ -1,0 +1,59 @@
+<view class="container">
+  <swiper class='big' indicator-dots="true"  duration="500" circular="true" indicator-color="#c8c8c8">
+    <block wx:for="{{items}}" wx:key>
+      <swiper-item>
+        <view style='height:{{item.height}}px; width:{{width}}px' data-src="{{item.file}}" catchtap='see'>
+          <image class='img' mode='widthFix' src='{{item.file}}'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='tiao'></view>
+  <block wx:for="{{all_items}}" wx:key>
+    <view class='top clearfix'>
+      <view class='sec_big clearfix'>
+        <view class='left float_l'>
+          <view class='head'>
+            <image class='img' mode='widthFix' src='{{item.avatar}}'></image>
+          </view>
+          <span>{{item.nickname}}</span>
+        </view>
+        <view class='right float_r'>
+          <view class='like float_l' data-id='{{item.id}}' catchtap='like'>
+            <image class='img' mode='widthFix' src='../img/{{item.is_like? "like2@2x.png" : "like@2x.png"}}'></image>
+          </view>
+          <span class="num">{{item.like_num}}</span>
+        </view>
+      </view>
+      <view class='title'>{{item.content}}</view>
+      <view class='time'>发布于 {{item.create_time}}</view>
+    </view>
+  </block>
+  <view class='tiao'></view>
+  <view class='fax'>其他发现</view>
+  <!--其他发现下排列表  -->
+  <view class='masonry'>
+    <block wx:for="{{bottom_items}}" wx:key>
+      <view class='item' catchtap='jump' data-id='{{item.id}}'>
+        <view class='imgs'>
+          <image class='img' mode='aspectFill' src='{{item.images[0].file}}'></image>
+        </view>
+        <view class='titles text_hidden2'>{{item.content}}</view>
+        <view class='bottom clearfix'>
+          <view class='heads float_l'>
+            <view class='small_head float_l'>
+              <image class='img' mode='widthFix' src='{{item.avatar}}'></image>
+            </view>
+            <span class="name">{{item.nickname}}</span>
+          </view>
+          <view class='likes float_r'>
+            <view class='likesz float_l' data-id='{{item.id}}' catchtap='like'>
+              <image class='img' mode='widthFix' src='../img/{{item.is_like? "like2@2x.png" : "like@2x.png"}}'></image>
+            </view>
+            <span class="nums">{{item.like_num}}</span>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,119 @@
+page {
+  background: #f8f8f8;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  font-size: 18px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.shai_name {
+  width: 130rpx;
+  overflow: hidden;
+  line-height: 66rpx;
+  margin-left: 24rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.img {
+  vertical-align: middle;
+}
+
+.head {
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.head .img {
+  width: 100%;
+  height: 100%;
+}
+
+.zang span{
+  line-height: 66rpx;
+  margin-left: 14rpx;
+  font-size: 13px;
+  color: #414141;
+}
+
+.issue {
+  color: #71ba2a !important;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  font-size: 35rpx;
+}
+
+.share_imgs {
+  width: 24rpx;
+  float: left;
+  line-height: 66rpx;
+}
+
+.shai_title {
+  margin-top: 50rpx;
+  line-height: 44rpx;
+  font-size: 16px;
+  padding: 0 10rpx;
+}
+
+.issueimg {
+  width: 28rpx;
+  height: 26rpx;
+}
+
+.header .float_l {
+  width: 33%;
+  font-size: 35rpx;
+  text-align: center;
+  color: #666;
+}
+
+.borr {
+  border-right: 1rpx solid #ccc;
+}
+
+/*发现列表  */
+
+.masonry {
+  position: relative;
+  column-count: 2;
+  column-gap: 0;
+  background: #f8f8f8;
+  margin: 20rpx;
+  margin-left: 0;
+  padding-bottom: 160rpx;
+  margin-top: 0;
+}
+
+.item {
+  break-inside: avoid;
+  box-sizing: border-box;
+  background: #fff;
+  box-shadow: 2px 2px 0px #f2f2f2;
+  margin-bottom: 20rpx;
+  margin-left: 20rpx;
+}
+
+.fa_imgs {
+  width: 340rpx;
+}
+
+.zang {
+  width: 83rpx;
+}
+
+.top_head {
+  margin-top: 18rpx;
+  padding: 10rpx;
+}

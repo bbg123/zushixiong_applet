@@ -1,0 +1,358 @@
+@import "../../template/orderlist/orderlist.wxss";
+
+/*导航样式  */
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid gainsboro;
+  text-align: center;
+  line-height: 80rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+
+.swiper-tab-list {
+  font-size: 16px;
+  color: #777;
+}
+
+.small:last-child {
+  margin-bottom: 25%;
+}
+
+.on {
+  color: #71ba2a;
+  border-bottom: 5rpx solid #71ba2a;
+}
+
+/*总个轮播  */
+
+.bigs {
+  background: #f8f8f8;
+  height: 100%;
+  padding-top: 86rpx;
+  box-sizing: border-box;
+}
+
+.scroll_big {
+  height: 100%;
+}
+.cha{
+  position: absolute;
+  width: 30rpx;
+  right: 50rpx;
+}
+/*租赁订单  */
+
+.small {
+  position: relative;
+  background: #fff;
+  margin-top: 19rpx;
+  padding: 0 46rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.small_box {
+  padding: 20rpx 0;
+}
+
+.small_box2 {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  border-top: 1px solid #e9e9e9;
+  padding: 15rpx 0;
+}
+
+.small_box2_name {
+  color: #fcb1ad;
+  border: 1px solid #fcb1ad;
+  margin-right: 10rpx;
+  padding: 2rpx;
+  border-radius: 5px;
+}
+
+.small_box2_text {
+  margin-right: 10rpx;
+}
+
+.small_box2_time {
+  color: #fcb1ad;
+}
+
+.imgs {
+  width: 100%;
+}
+
+.cc {
+  width: 40rpx;
+  float: left;
+  line-height: 45rpx;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.num {
+  margin-top: 10rpx;
+}
+
+.num span {
+  font-size: 30rpx;
+  float: right;
+  line-height: 48rpx;
+  font-weight: bolder;
+}
+
+.goods_num {
+  position: absolute;
+  bottom:0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0 5rpx;
+}
+
+.zu_inp {
+  text-align: center;
+  width: 44rpx;
+  height: 44rpx;
+  font-size: 14px;
+}
+
+.jia {
+  border-radius: 0 5px 5px 0;
+  border-left: 0;
+}
+
+.jian {
+  border-radius: 5px 0 0 5px;
+  border-right: 0;
+}
+
+/* 结算按钮 */
+.over {
+  width: 90%;
+  text-align: center;
+  color: #fff;
+  background: #f33e35;
+  line-height: 80rpx;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+/* 待归还 */
+
+.scroll_bigs {
+  height: 100%;
+}
+
+.small_top {
+  padding:15rpx 0;
+  color:#666;
+  font-size:32rpx;
+  border-bottom:1rpx solid #f4f4f4;
+  margin-bottom:10rpx;
+}
+
+.bottom {
+  line-height: 76rpx;
+  padding-top: 10rpx;
+}
+
+.type {
+  font-size: 14px;
+  color: #333;
+  float: left;
+  line-height: 76rpx;
+}
+
+.right {
+  font-size: 14px;
+}
+
+.lefts {
+  border: 1px solid #787878;
+  padding: 0rpx 40rpx;
+  border-radius: 20px;
+  text-align: center;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+  line-height: 60rpx;
+}
+
+.rights {
+  padding: 0rpx 40rpx;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 10rpx;
+  line-height: 60rpx;
+}
+
+/*待归还  */
+
+.back {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.big_back {
+  background: #fff;
+  padding: 0 46rpx;
+}
+
+.bottomsbor {
+  border-bottom:1rpx solid #ccc;
+}
+.small_back .bottomsbor:last-child {
+  border-bottom:none;
+}
+
+.bottoms {
+  width: 100%;
+  padding: 30rpx 0;
+}
+.backs {
+  font-size: 30rpx;
+  border: 1px solid #282a27;
+  color: #282a27;
+  padding: 5rpx 10rpx;
+  border-radius: 20px;
+  text-align: center;
+  width: 20%;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.no_back{
+  border: 1px solid #999 !important;
+  color: #999 !important;
+}
+.want {
+  border: 1px solid #666;
+  color: #282a27;
+}
+
+.bottoms_main {
+  display: flex;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  justify-content:space-between;
+  align-items: center;
+}
+
+.img{
+  vertical-align: middle;
+}
+.a1_col {
+  color: #a1a1a1;
+}
+.order{
+  padding: 15rpx 0;
+  color:#666;
+  font-size:32rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+  margin-bottom: 10rpx;
+}
+.historyList {
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx 40rpx;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap:wrap;
+}
+.historyList_orders {
+  color: #666;
+  font-size: 32rpx;
+  padding: 17rpx 0;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.historyList_btn {
+  border: 1rpx solid #cccccc;
+  border-radius: 30rpx;
+  padding: 10rpx;
+  float: right;
+  margin: 20rpx 0;
+  color: #ccc;
+  font-size: 32rpx;
+}
+.active {
+  color: #000 !important;
+  border: 1rpx solid #000 !important;
+}
+.tiao {
+  height: 15rpx;
+  background: #f8f8f8;
+  width: 100%;
+}
+
+.buy_out {
+  width: 100%;
+  height: 65%;
+  color: #666;
+  background: #fff;
+  position: fixed;
+  padding:50rpx 0 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+.closebuy_out {
+  position: absolute;
+  right: 30rpx;
+  top: 10rpx;
+  width: 30rpx;
+}
+
+.mask_layer {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0,.5);
+  z-index: 20;
+}
+
+.line {
+  border-bottom: 1rpx solid #ccc;
+  padding: 15rpx 0 ;
+  margin: 0 40rpx;
+}
+.buy_out_btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #71ba2a;
+  color: #fff;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.linenum {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  width: 50rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border: 1rpx solid #666;
+  text-align: center;
+}

@@ -1,0 +1,57 @@
+<view class="container" style="background: #fff;">
+
+  <!-- 钱包金额 -->
+  <view class="wallet_top">
+    <view class="wallet_top_txt">可用余额</view>
+    <view class="wallet_top_num"> <view style="font-size: 39rpx;">￥</view>{{money}}</view>
+    <view class="wallet_top_btn" data-type="1" bindtap="tapframe" style="background: #70bb29; color: #fff;">充值</view>
+    <view class="wallet_top_btn" data-type="2" bindtap="tapframe" style="background: #e5e5e5; color: #383838;">提现</view>
+  </view>
+
+  <view class="tiao"></view>
+
+  <!-- 交易时间详情 -->
+  <view class="wallet_main">
+    <block wx:for="{{record}}" wx:key="{{index}}">
+      <view class="wallet_main_record">
+        <view class="wallet_main_record_left">
+          <view class="wallet_main_record_left_top">{{item.name}}</view>
+          <view class="wallet_main_record_left_bottom">{{item.create_time}}</view>
+        </view>
+        <view class="wallet_main_record_right" style="{{item.money > 0 ?  'color: #70bb2b;' : 'color: #000;'}} ">
+          {{item.money}}
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 遮罩层 -->
+  <view class="mask_layer" wx:if="{{input_frame}}" bindtap="closeframe"></view>
+
+  <!-- 点击充值和提现显示弹出框 -->
+  <view class="input_frame" wx:if="{{input_frame}}">
+    <view class="input_frame_X" bindtap="closeframe">
+      <image mode="widthFix" src="../img/x.png" style="width: 100%;"></image>
+    </view>
+
+    <form report-submit="true" bindsubmit="payment"  data-type="{{type}}">
+      <view class="input_frame_main">
+    
+        <view class="input_frame_main_txt">{{ type == 1 ? '充值金额' : '提现金额'}}</view>
+        <view class="input_frame_main_input">
+          <view class="input_frame_main_input_rmb">￥</view>
+          <block wx:if="{{ type == 2 }}">
+              <input class="input_frame_main_input_rmb_num" type="number" focus placeholder="请输入提现金额，最高可提现{{money}}元" maxlength="10" placeholder-style="font-size:12px;color:#dcdcdc;" cursor-spacing="85" bindinput="getmoneynum"/>
+          </block>
+          <block wx:if="{{ type == 1 }}">
+              <input class="input_frame_main_input_rmb_num" type="number" focus placeholder="请输入充值金额" maxlength="10" placeholder-style="font-size:16px;color:#dcdcdc;" cursor-spacing="85" bindinput="getmoneynum"/>
+          </block>
+        </view>
+        <view class="input_frame_main_tip" wx:if="{{type == 2}}">提现金额将于1至3个工作日原路退回,请注意查收!</view>
+      </view>
+      
+      <button formType="submit" class="input_frame_btn">{{ type == 1 ? '微信支付' : '确定'}}</button>
+    </form>
+
+  </view>
+</view>

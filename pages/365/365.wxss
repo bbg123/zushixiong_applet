@@ -1,0 +1,7 @@
+
+.container view{
+  margin-bottom: 30rpx;
+  line-height: 60rpx;
+  font-size: 16px;
+  padding: 0 20rpx;
+}

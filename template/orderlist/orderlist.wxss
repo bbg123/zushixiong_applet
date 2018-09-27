@@ -1,0 +1,52 @@
+.smalls {
+  padding: 30rpx 0;
+  border-bottom: 1px dashed #ccc;
+}
+.small_l {
+  width: 30%;
+  float: left;
+  position: relative;
+}
+.imgs {
+  width: 100%；;
+}
+.img {
+  width: 100%;
+}
+.small_r {
+  float: left;
+  width: 65%;
+  margin-left: 20rpx;
+}
+.name {
+  font-size: 14px;
+  line-height: 40rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+.color {
+  color: #a1a1a1;
+  font-size: 14px;
+}
+.buy_money {
+  font-size: 16px;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.buy_money span {
+  color: #cfcfcf;
+  margin-left: 10rpx;
+}
+.zu_pay {
+  color: #f33e35;
+}
+.nums {
+  color: #676767;
+}
+.ya_pay {
+  color: #676767;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}

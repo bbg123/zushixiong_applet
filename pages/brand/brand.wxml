@@ -1,0 +1,36 @@
+<view class="">
+  <scroll-view class='big_scroll' scroll-y lower-threshold="100px" bindscrolltolower="bottomscroll" bindscroll="scroll" scroll-top="{{scolltop}}" scroll-with-animation="true" style="height: {{clientHeight}}px;">
+    <view class='top'>
+      <view class='top_img'>
+        <image class='img' mode='widthFix' src='{{top.top_img}}'></image>
+      </view>
+      <view class='two clearfix'>
+        <view class='xin1 float_l' bindtap='zan'>
+          <view class='imgs float_l'>
+            <image class='img' mode='widthFix' src='{{is_collect? "../img/xin6.png":"../img/xin.png"}}'></image>
+          </view>关注品牌</view>
+        <view class='fans float_l'>粉丝数 {{fans_count}}</view>
+      </view>  
+    </view>
+    <view class='title'>
+      <view class='cname'>{{top.ename}}</view>
+      <view class='{{chang? "zis" :"zi"}}'>{{top.content}}</view>
+      <view class='bottom_img {{chang?"active":""}}' bindtap='up'><image class='img' mode='widthFix' src='../img/dowm.png'></image></view>
+    </view>
+    <view class='tiao'></view>
+    <view class='chioss clearfix'>
+        <view class='choess float_l {{"全部"==keyword? "actives":""}}' bindtap='touch' data-cordw="全部"  >全部</view>
+        <view class='choess float_l {{"热租"==keyword? "actives":""}}' bindtap='touch' data-cordw="热租" >热租</view>
+    </view>
+    <view class='bigs'>
+
+      <import src="../../template/goodslist/goodslist.wxml"/>
+      <template is="goodslist" data="{{items}}"></template>
+       
+    </view>
+    <view class='tops'>
+      <image class='img' src='../img/top.png' mode='widthFix' bindtap='back' hidden='{{!topc}}'></image>
+    </view>
+  </scroll-view>
+
+</view>

@@ -1,0 +1,27 @@
+.big{
+  margin: 60rpx 40rpx;
+}
+.top_img{
+  width: 67rpx;
+  height: 67rpx;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.name{
+  line-height: 67rpx;
+  font-size: 16px;
+  margin-left: 24rpx;
+}
+.title{
+  margin-left: 94rpx;
+  margin-top: 50rpx;
+}
+.x_scroll{
+  margin-top: 34rpx;
+  margin-left: 94rpx;
+}
+.cent_img{
+  width: 335rpx;
+  display: inline-block;
+  margin-right: 20rpx;
+}

@@ -1,0 +1,27 @@
+<view class="container">
+
+  <view class='title'>{{title}}</view>
+  <view class='top'>
+    <block wx:for="{{list}}" wx:key>
+      <view class='q_a'>
+        <view class='q' data-b="{{index}}" bindtap='up'>{{item.q}} <view class='{{index==b? "dowm":""}}'><image class='img' mode='widthFix' src='../img/dowm.png'></image></view></view>
+        <view class='a  {{index==b? "block":"none"}}' data-c = "{{index}}">{{item.a}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class='tiao'></view>
+  <view class='bottom'>
+    <view class='our'>联系我们</view>
+    <view class='ke'>客服电话：
+      <span>400-600-8889</span>
+    </view>
+    <view class='ke'>官方微信/微博:
+      <span>搜索“租师兄”关注官方账号</span>
+    </view>
+    <view class='ke'>业务合作:
+      <span>2355819638@qq.com</span>
+    </view>
+
+  </view>
+</view>

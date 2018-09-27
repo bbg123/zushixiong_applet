@@ -1,0 +1,40 @@
+.container {
+  background: #fff;
+}
+.top{
+  padding: 40rpx;
+  padding-bottom: 60rpx;
+}
+.title{
+  line-height: 120rpx;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 14px;
+}
+.left{
+  width: 18%;
+}
+.imgs{
+  width: 40rpx;
+  margin: 0 auto;
+}
+.img{
+  vertical-align: middle;
+}
+.right_img{
+  width: 60rpx;
+}
+.bottom{
+  font-size: 16px;
+  padding: 50rpx;
+}
+.our{
+  font-size: 20px;
+  margin-bottom: 50rpx;
+  margin-top: 50rpx;
+}
+.ke{
+  margin-bottom: 10rpx;
+}
+.ke span{
+  color: #cd684a;
+}

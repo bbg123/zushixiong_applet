@@ -1,0 +1,110 @@
+/*手表部分  */
+.how{
+  background: #fff;
+  padding: 10rpx 40rpx;
+  font-size: 14px;
+  line-height: 50rpx;
+}
+.container{
+  background: #f8f8f8;
+}
+.small{
+  padding: 20rpx 0rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #ccc;
+}
+.small:last-child{
+  border-bottom: none;
+}
+.small_l{
+  width: 27%;
+  margin-right: 20rpx;
+}
+.small_r{
+  width: 68%;
+  padding-top: 15rpx;
+}
+.big_scroll{
+  background: #f8f8f8;
+  height: 100%;
+}
+.name{
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 10rpx;
+}
+.color{
+  font-size: 14px;
+  color: #666;
+  margin: 10rpx 0;
+}
+.money{
+  font-size: 16px;
+}
+.ti{
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
+.fa_ti{
+  width: 90%;
+  background: #fff;
+  position: absolute;
+  padding-bottom: 30rpx;
+  bottom: 0;
+  margin: 0 40rpx;
+  left: 0;
+}
+.have{
+  background: #fff;
+  padding: 20rpx 40rpx;
+}
+.toptxt {
+  font-size: 16px;
+  display:flex;
+  align-items: flex-end;
+}
+.names{
+  width: 200rpx;
+}
+.city{
+  font-size: 14px;
+  width: 80%;
+}
+.adree{
+  position: relative;
+}
+.imgq{
+  font-size:0;
+  position: absolute;
+  width: 60rpx;
+  right: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.shopping {
+  background: #fff;
+  padding: 0 40rpx;
+  margin-bottom: 20rpx;
+}
+.none{
+  display: none;
+}
+
+.message {
+  padding: 0 45rpx;
+  background: #fff;
+  font-size: 16px;
+}
+
+.message_line {
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+
+.message_line:last-child {
+  height: 150rpx;
+  line-height: 0;
+  border: 0;
+}

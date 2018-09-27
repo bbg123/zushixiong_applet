@@ -1,0 +1,125 @@
+/**index.wxss**/
+
+.input input {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px #d9d9d9 solid;
+  border-top: 1px #d9d9d9 solid;
+  padding: 20rpx 50rpx;
+}
+
+.citypicker {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  background: #000;
+  height: 400rpx;
+  z-index: 9999;
+}
+
+.citypickers {
+  position: fixed;
+  width: 100%;
+  min-height: 200rpx;
+  background-color: #ff0;
+}
+
+.citybody {
+  position: fixed;
+  bottom: 0px;
+  background: #c8c8c8;
+  height: 450rpx !important;
+}
+
+.cityheader {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 99;
+  background: #f8f8f8;
+}
+picker-view-column{
+  background: #f8f8f8;
+}
+.city-cancel {
+  float: left;
+  margin: 20rpx;
+  color: #000;
+  z-index: 999;
+}
+
+.city-true {
+  float: right;
+  margin: 20rpx;
+  color: #000;
+}
+
+.section .picker {
+  background-color: #fff;
+  border-bottom: 2px #ccc solid;
+  border-top: 2px #d9d9d9 solid;
+  padding: 20rpx;
+}
+
+/*头部英文字  */
+
+.big {
+  padding: 40rpx;
+}
+
+.e_name {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 40rpx;
+}
+
+input {
+  float: right;
+  text-align: right;
+  color: #c8c8c8;
+  z-index: -4;
+}
+
+.name {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 60rpx 0;
+}
+
+.input {
+  width: 500rpx;
+  float: right;
+  text-align: right;
+  color: #c8c8c8;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+.adds{
+  background: #f33e35;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 80rpx;
+}
+.dele{
+  font-size: 16px;
+  color: #f43e33;
+  position: absolute;
+  top: 20rpx;
+  right: 60rpx;
+  font-weight: bold;
+}
+.none{
+  display: none;
+}

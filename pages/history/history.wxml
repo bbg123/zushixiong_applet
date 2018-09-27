@@ -1,0 +1,31 @@
+<import src="../../template/orderlist/orderlist.wxml" />
+<view class="container">
+  <scroll-view scroll-y>
+    <view class='bigs' style='height:{{height}}px'>
+      <view class='tou clearfix'>
+        <view class='float_l {{type==1? "hri_active":""}}' catchtap='zu'>租赁历史</view>
+        <view class='float_l {{type==2? "hri_active":""}}' catchtap='buy'>购买历史</view>
+      </view>
+      <view class='tiao'></view>
+      <block wx:for="{{items}}" wx:key wx:for-item="c">
+        <view class='{{zu==0? "big":""}}'>
+          <view class='small clearfix' data-orders="{{c.order_sn}}" catchtap="xiang">
+            <view class='big_small clearfix'>
+              <view class='mun'>订单编号:{{c.order_sn}}</view>
+              <block wx:for="{{c.list}}" wx:key wx:for-item="p">
+                <template is="orderlist" data="{{p}}"></template>
+              </block>
+            </view>
+            <view class='clearfix buyc'>
+              <view class='{{a.is_comment?"go_buy":"go_buys"}} float_r' data-order='{{c.order_sn}}' data-id='{{a.goods_id}}' catchtap='{{a.is_comment? "csee":"jump"}}'>{{a.is_comment? "查看评价":"我要评价"}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{items.length == 0}}">
+        <import src="../../template/nodata/nodata.wxml" />
+        <template is="nodata"></template>
+      </block>
+    </view>
+  </scroll-view>
+</view>

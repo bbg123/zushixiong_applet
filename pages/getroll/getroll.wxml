@@ -1,0 +1,28 @@
+<view class="getroll">
+  <block wx:for="{{rollitem}}" wx:key="{{index}}">
+    <view class="getroll_list" data-id="{{item.id}}" bindtap="{{item.is_get? '' : 'get_roll'}}">
+      <view class="getroll_list_tip">
+        <view class="getroll_list_tip_money"><text class="getroll_list_tip_money_fh">￥</text>{{item.money}}</view>
+        <view class="getroll_list_tip_type">{{item.condition_msg}}</view>
+        <view class="getroll_list_tip_icon">
+          <image mode="widthFix" class="img" src="{{item.order_type == '购买' ? '../img/buy_icon.png' : '../img/rent_icon.png' }}"></image>
+        </view>
+      </view>
+      <view class="getroll_list_txt">
+        <view class='getroll_list_txt_name'>{{item.type}}</view>
+        <view class="getroll_list_txt_name getroll_list_txt_name1">{{item.name}}</view>
+        <view class="getroll_list_txt_time">{{item.use_time}}</view>
+        <view class="getroll_list_isGet {{item.is_get? 'getroll_list_isGet1':''}}">
+          {{item.is_get? '已领取':'立即领取'}}
+        </view>
+        <view class="getroll_list_txt_pos" style="top: -15rpx;"></view>
+        <view class="getroll_list_txt_pos" style="bottom: -15rpx;"></view>
+
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{rollitem.length == 0}}">
+    <import src="../../template/nodata/nodata.wxml" />
+    <template is="nodata"></template>
+  </block>
+</view>

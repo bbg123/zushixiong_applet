@@ -1,0 +1,200 @@
+<!--index.wxml-->
+<view class="container">
+
+  <!--人群弹出窗  -->
+  <view class='sex' hidden='{{screenTxt !== "人群"}}'>
+    <view class='header'>
+      <view class='left_img'>
+        <image bindtap='chu' class='img' mode='widthFix' src='../img/x.png'></image>
+      </view>
+      <view class='center'>人群</view>
+    </view>
+    <!--选择条  -->
+    <view class='corwd'>
+      <block wx:for="{{peopel}}" wx:key>
+        <view class='xuans' data-index="{{item}}" bindtap='checc'>
+          <view class='check_img'>
+            <image mode='widthFix' data-index="{{item}}" bindtap='checc' class='img' src='../img/{{item==checc?true:false}}.png'>
+            </image>
+          </view> {{item}}
+        </view>
+      </block>
+    </view>
+    <view class='bottom_p'>
+      <view class='bottom_l zx' bindtap='clear'>清除选项</view>
+      <view class='bottom_r zx' bindtap='again'>确认</view>
+    </view>
+  </view>
+  <!--结束位置  -->
+
+  <!--展示品牌页面  -->
+  <view class='tang' hidden='{{!tang}}'>
+    <view class='tos_img' bindtap='canr'>
+      <view>
+        <image class='img' mode='widthFix' src='../img/x.png'></image>
+      </view>
+    </view>
+    <checkbox-group class="checkbox" bindchange="choss">
+      <block wx:for="{{top_list}}" wx:for-item="z" wx:key>
+        <view class='num'>
+          <view class='top'>{{z.initial}}</view>
+          <block wx:for="{{z.list}}" wx:key wx:for-item="c">
+            <view class='body clearfix'>
+              <label class="checkbox clearfix">
+                <checkbox class='float_l' value='{{c.id}}' checked='{{check}}' id="{{c.id}}"></checkbox>
+                <view class='logo float_l'>
+                  <image class='img' mode='widthFix' src='{{c.logo}}'></image>
+                </view>
+                <view class='brand_name float_l'>{{c.ename}}</view>
+              </label>
+            </view>
+          </block>
+        </view>
+      </block>
+    </checkbox-group>
+    <view class='bottom clearfix'>
+      <view class='view' bindtap='clears'>清除品牌</view>
+      <view class='view' bindtap='luo'>确认</view>
+    </view>
+  </view>
+  <!--end  -->
+
+  <!--风格弹出窗  -->
+  <view class='sex' hidden='{{screenTxt !== "风格"}}'>
+    <view class='header'>
+      <view class='left_img'>
+        <image bindtap='chu' class='img' mode='widthFix' src='../img/x.png'></image>
+      </view>
+      <view class='center'>风格</view>
+    </view>
+    <!--选择条  -->
+    <view class='corwd'>
+      <block wx:for="{{style}}" wx:key>
+        <view class='xuans' data-index="{{item}}" bindtap='chestyle'>
+          <view class='check_img'>
+            <image mode='widthFix' data-index="{{item}}" bindtap='chestyle' class='img' src='../img/{{item==chestyle?true:false}}.png'></image>
+          </view> {{item}}
+        </view>
+      </block>
+    </view>
+    <view class='bottom_p'>
+      <view class='bottom_l zx' bindtap='styleclear'>清除选项</view>
+      <view class='bottom_r zx' bindtap='styleAgain'>确认</view>
+    </view>
+  </view>
+  <!--结束位置  -->
+
+  <!--机芯弹出窗  -->
+  <view class='sex' hidden='{{screenTxt !== "机芯"}}'>
+    <view class='header'>
+      <view class='left_img'>
+        <image bindtap='chu' class='img' mode='widthFix' src='../img/x.png'></image>
+      </view>
+      <view class='center'>机芯</view>
+    </view>
+    <!--选择条  -->
+    <view class='corwd'>
+      <block wx:for="{{movement}}" wx:key>
+        <view class='xuans' data-index="{{item}}" bindtap='chemovement'>
+          <view class='check_img'>
+            <image mode='widthFix' data-index="{{item}}" bindtap='chemovement' class='img' src='../img/{{item==chemovement?true:false}}.png'></image>
+          </view> {{item}}
+        </view>
+      </block>
+    </view>
+    <view class='bottom_p'>
+      <view class='bottom_l zx' bindtap='movementClear'>清除选项</view>
+      <view class='bottom_r zx' bindtap='movementAgain'>确认</view>
+    </view>
+  </view>
+  <!--结束位置  -->
+
+  <!--筛选  -->
+  <view class='chosse' hidden='{{xuans}}' bindtap='chosse'>
+    <view class='bigs' catchtap='nos'>
+      <view class='bigs_heard clearfix'>
+        <view class='head_title'>租金区间</view>
+        <view class='money clearfix'>
+          <input type='number' placeholder='最低价' bindinput="di" value='{{rent_price_min}}'></input>
+          <span>-</span>
+          <input type='number' placeholder='最高价' bindinput="gao" value='{{rent_price_max}}' />
+        </view>
+      </view>
+      <scroll-view scroll-y class='scro_big'>
+        <block wx:for="{{attribute}}" wx:key wx:for-item="v" wx:for-index="indexp">
+
+          <view class='kuai'>
+            <view class='title'>{{v.name}}</view>
+            <view class='kuais'>
+              <block wx:for="{{v.name=='品牌'?  v.list :v.data}}" wx:key wx:for-item="tt" wx:for-index="indedxs">
+                <label class='small_kuai  {{ds[indexp]==tt? "actives" :(ds[indexp]==tt.name? "actives" : "")}}  ' data-id="{{indedxs}}" data-ind="{{indexp}}"
+                  catchtap='radio' data-id="{{indexp}}" data-name="{{v.name=='品牌'? tt.name : tt}}">
+                  {{v.name=='品牌'? tt.name : tt}}
+                  <radio value="{{v.name=='品牌'? tt.name : tt}}" hidden='0' checked="false"></radio>
+                </label>
+              </block>
+            </view>
+
+          </view>
+        </block>
+
+
+
+      </scroll-view>
+      <view class='chosse_bottom'>
+        <view class='bottoms' bindtap='resent'>重置</view>
+        <view class='bottoms' bindtap='sure'>保存筛选</view>
+      </view>
+    </view>
+  </view>
+  <!--end  -->
+
+  <view class='za_a' hidden='{{topbtn}}'>
+    <view class="za_ab">
+      <view class='za' bindtap='oo' id="0" data-context="租价" style="{{turn ? '' : 'color:#f33e35;font-weight:600;'}}">价格
+        <view class='top_img'>
+          <image class='img' mode='widthFix' src='../img/zu.png'></image>
+        </view>
+      </view>
+      <view class='za' data-context="热租" bindtap='popularity' style="{{is_hot == 0 ? '' : 'color:#f33e35;font-weight:700;'}}">人气
+        <view class='top_img'>
+          <image class='img' mode='widthFix' src='../img/ren.png'></image>
+        </view>
+      </view>
+      <view class='za' data-context="新品" bindtap='newslist' style="{{is_new == 0 ? '' : 'color:#f33e35;font-weight:600;'}}">新品
+        <view class='top_img'>
+          <image class='img' mode='widthFix' src='../img/newproduct.png'></image>
+        </view>
+      </view>
+      <view class='za' bindtap='sai'>筛选
+        <view class='top_img'>
+          <image class='img' mode='widthFix' src='../img/saixuan.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class="za_b">
+      <view class='za_b_a {{ crowd === "" ? "" : "za_active"}}' data-txt="人群" bindtap='people'>{{ crowd !== "" ? crowd : "人群"}}</view>
+      <view class='za_b_a {{ brand === "" ? "" : "za_active"}}' bindtap='brand'>品牌</view>
+      <view class='za_b_a {{ styleTxt === "" ? "" : "za_active"}}' data-txt="风格" bindtap='people'>{{ styleTxt !== "" ? styleTxt:"风格"}}</view>
+      <view class='za_b_a {{ movementTxt === "" ? "" : "za_active"}}' data-txt="机芯" bindtap='people'>{{ movementTxt !== "" ? movementTxt :"机芯"}}</view>
+    </view>
+  </view>
+  
+  <view class="testbox" style='width:{{bi_width}}px'>
+
+    <import src="../../template/goodslist/goodslist.wxml" />
+    <template is="goodslist" data="{{items}}"></template>
+
+    <block wx:if="{{items.length == 0}}">
+      <import src="../../template/nodata/nodata.wxml" />
+      <template is="nodata"></template>
+    </block>
+
+    <!--返回top的iocn  -->
+    <view class='tops'>
+      <image class='img' src='../img/top.png' mode='widthFix' bindtap='back'></image>
+    </view>
+
+  </view>
+
+</view>

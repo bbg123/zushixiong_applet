@@ -1,0 +1,77 @@
+<view class="container">
+  <!--展示品牌页面  -->
+  <view class='tang' hidden='{{!tang}}'>
+    <view class='tos_img'>
+      <view bindtap='canr'>
+        <image class='img' mode='widthFix' src='../img/x.png'></image>
+      </view>
+    </view>
+    <checkbox-group bindchange="choss">
+      <block wx:for="{{top_list}}" wx:for-item="z" wx:key>
+        <view class='num'>
+          <view class='top'>{{z.initial}}</view>
+          <block wx:for="{{z.list}}" wx:key wx:for-item="c">
+            <view class='body clearfix'>
+              <label class="checkbox">
+                <checkbox class='float_l' value='{{c.id}}' checked="{{c.is_collect}}" id="{{c.id}}"></checkbox>
+                <view class='logo float_l'>
+                  <image class='img' mode='widthFix' src='{{c.logo}}'></image>
+                </view>
+                <view class='brand_name float_l'>{{c.ename}}</view>
+              </label>
+            </view> 
+          </block>
+        </view>
+      </block>
+    </checkbox-group>
+    <view class='bottom clearfix'>
+      <view class='view' bindtap='clears'>清除品牌</view>
+      <view catchtap="luo" class='view'>确认</view>
+    </view>
+  </view>
+  <!--end  -->
+  <scroll-view scroll-y class='scroll_big'>
+    <view class='my' bindtap='canr' wx:if="{{headitems}}">
+      我的品牌
+      <span class="my_brands">MY BRANDS</span>
+      <view class='right'>管理
+        <span class="right_img">
+          <image class='img' mode='widthFix' src='../img/three.png'></image>
+        </span>
+      </view>
+      <scroll-view class='img_hot none' scroll-x>
+        <view class='heads_img' style='width:{{all_width}}rpx'>
+          <view class='head_img' catchtap='xian'>
+            <image class='img' mode='widthFix' src='../img/size@3x.png'></image>
+          </view>
+          <block wx:for="{{headitems}}" wx:key>
+            <view class='head_img' id="{{item.id}}" catchtap='jumps'>
+              <image class='img' mode='widthFix' src='{{item.collect_img}}'></image>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='body'>
+      我的专属装备
+      <span class="my_brands">MY EQUIPMENT</span>
+    </view>
+    <view class='body_div'>
+      <block wx:for="{{bodyitems}}" wx:key="{{index}}">
+        <view class='small_div' bindtap='jump'  data-id='{{item.goods_id}}' >
+          <view class='top_img' >
+            <image class='img' mode='widthFix' src='{{item.goods_img}}' ></image>
+          </view>
+          <view class='pay_bottom'>
+            <view class='name'>{{item.goods_name}}</view>
+            <view class='pay'>租金
+              <span class="red_col">{{item.rent_price_day}}</span>
+            </view>
+            <view class='tong'>{{item.goods_features}}</view>
+            <view class="experience">立即体验</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

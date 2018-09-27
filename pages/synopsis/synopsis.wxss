@@ -1,0 +1,16 @@
+.valu{
+  color: #aaaaaa;
+  font-size: 16px;
+  line-height: 50rpx;
+}
+.title{
+  font-size: 16px;
+  margin-bottom: 30rpx;
+  color: #aaaaaa;
+}
+.title span{
+  color: red;
+}
+.big{
+  padding:0 40rpx;
+}

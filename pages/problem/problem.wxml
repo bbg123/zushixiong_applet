@@ -1,0 +1,25 @@
+<view class="container">
+  <view class='top'>
+    <block wx:for="{{list}}" wx:key>
+      <view class='title clearfix' data-idnex="{{index}}" bindtap='jump'>
+        <view class='left float_l'>
+          <view class='imgs'>
+            <image class='img' mode='widthFix' src='{{item.icon}}'></image>
+          </view>
+        </view>
+        <view class='right float_l'>{{item.name}}</view>
+        <view class='right_img float_r'>
+          <image class='img' mode='widthFix' src='../img/right_san.png'></image>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='tiao'></view>
+  <view class='bottom'>
+    <view class='our'>联系我们</view>
+    <view class='ke'>客服电话：<span>400-600-8889</span></view>
+    <view class='ke'>官方微信/微博:  <span>搜索“租师兄”关注官方账号</span></view>
+    <view class='ke'>业务合作:  <span>chufengzhineng@sina.com</span></view>
+  
+  </view>
+</view>

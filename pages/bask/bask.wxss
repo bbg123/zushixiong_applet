@@ -1,0 +1,156 @@
+/*晒图  */
+
+.big_shai {
+  height: 930rpx;
+}
+
+.big_dan {
+  height: 860rpx;
+}
+
+.small_shai {
+  background: #fff;
+  margin-bottom: 22rpx;
+  padding: 20rpx 40rpx;
+}
+
+.shais {
+  background: #f8f8f8;
+}
+
+.shai_top {
+  padding-left: 252rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 16px;
+  padding-bottom: 16rpx;
+  padding-top: 20rpx;
+  background: #fff;
+  color: #9b9b9b;
+  margin-top: 74rpx;
+}
+
+.shai {
+  display: inline-block;
+  border-right: 1px solid #ccc;
+  padding-right: 60rpx;
+}
+
+.fa {
+  display: inline-block;
+  padding-left: 60rpx;
+}
+
+.share {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  line-height: 40rpx;
+}
+
+.carebtn {
+  padding: 0;
+  background: #fff;
+  box-sizing: content-box;
+  border-radius: 0px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.carebtn::after {
+  border: 0;
+}
+
+.share span {
+  margin-left: 10rpx;
+}
+
+.head {
+  width: 66rpx;
+  height: 66rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.shai_name {
+  margin-left: 24rpx;
+  font-size: 14px;
+  margin-top: 10rpx;
+}
+
+.shai_title {
+  margin-top: 30rpx;
+  line-height: 44rpx;
+  font-size: 14px;
+  padding: 0 10rpx;
+}
+
+.head .img {
+  width: 100%;
+  height: 100%;
+}
+
+.share_img {
+  width: 35rpx;
+  margin-right: 10rpx;
+}
+
+.share_imgs {
+  width: 24rpx;
+  float: left;
+  line-height: 66rpx;
+}
+
+.zang span {
+  line-height: 66rpx;
+  margin-left: 14rpx;
+  font-size: 13px;
+  color: #414141;
+}
+
+.shai_imgs {
+  display: flex;
+  margin: 32rpx 0;
+}
+
+.shai_img {
+  width: 480rpx;
+  height: 480rpx;
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 14rpx;
+}
+
+.shai_img .img {
+  width: 100%;
+  height: 100%;
+}
+
+.long2 {
+  width: 1000rpx;
+}
+
+.long3 {
+  width: 1500rpx;
+}
+
+.long4 {
+  width: 2000rpx;
+}
+
+.long5 {
+  width: 2500rpx;
+}
+
+.shai_bottom {
+  display: flex;
+  height: 50rpx;
+  margin-top: 32rpx;
+  justify-content: center;
+}
+
+.border-r {
+  border-right: 1px solid #ccc;
+}

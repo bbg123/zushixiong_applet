@@ -1,0 +1,31 @@
+<template name="goodslist">
+
+  <block wx:for="{{items}}" wx:key>
+    <view class='test flex-view-item' bindtap='jumpx' id='{{item.goods_id}}'>
+      <view class='hot'>
+        <image class='img' mode='widthFix' src='{{item.is_just_new? "../../pages/img/up.png" :(item.is_new? "../../pages/img/news.png":"")}}'>
+        </image>
+      </view>
+
+      <view class='img_s'>
+        <image class='img' src='{{item.goods_img}}' lazy-load="true" mode='widthFix'></image>
+        <block wx:if="{{item.store_count == 0 }}">
+          <view class="inventory">待返架</view>
+        </block>
+        <block wx:elif="{{item.store_count <= 3}}">
+          <view class="inventory">仅剩{{item.store_count}}件</view>
+        </block>
+      </view>
+
+
+      <view class='xin' catchtap='change' id="{{index}}" data-id="{{item.goods_id}}" data-iscollect="{{item.is_collect}}">
+        <image src='../../pages/img/{{item.is_collect? "xin6.png":"xin5.png"}}' mode='widthFix' class='img' lazy-load="true"></image>
+      </view>
+      <view class='money_big'>
+        <view class='money_s'>{{item.rent_price_day}}</view>
+        <view class="small_txt">{{item.color_sum}}</view>
+      </view>
+      <view class='small text_hidden2'>{{item.goods_name}}</view>
+    </view>
+  </block>
+</template>
